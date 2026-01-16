@@ -1,7 +1,7 @@
 # pythonprojekt
-## *Kochbuch by*
+## *Harry Potter Kochbuch*
 ## Beschreibung
-Dieses Projekt stellt ein Kochbuch dar. 
+Dieses Projekt stellt ein Harry Potter Kochbuch dar. 
 Was macht das Programm?
 ## Installation
 Wie starte ich es?
