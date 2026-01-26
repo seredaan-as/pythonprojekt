@@ -1,0 +1,973 @@
+[
+  {
+    "id": "r1",
+    "recipe_name": "Kreachers Zwiebelsuppe",
+    "hp_story": "Hauself Kreacher, der alte Griesgram aus dem Grimmauldplatz, wäre wahrscheinlich nicht besonders freundlich beim Servieren – aber seine deftige Zwiebelsuppe würde selbst Harry und Ron das Herz wärmen, wenn sie im kalten London aus einem Ordensauftrag zurückkehren.",
+    "cooking_time": 90,
+    "recipe_complexity": "mittel",
+    "diet_type": "vegetarisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Kreacher",
+        "Harry Potter"
+    ],
+    "servings": 6,
+    "ingredients": [
+      {"ingredient":"Butter","amount":80,"unit":"g","note":null},
+      {"ingredient":"Öl","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Zwiebeln","amount":800,"unit":"g","note":"in Ringen"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"zum Schwitzen"},
+      {"ingredient":"Zucker","amount":null,"unit":null,"note":"Prise, zum Karamellisieren"},
+      {"ingredient":"Mehl","amount":2,"unit":"EL","note":null},
+      {"ingredient":"Gemüsefond","amount":1000,"unit":"ml","note":"heiß"},
+      {"ingredient":"Baguette","amount":15,"unit":"Scheiben","note":"geröstet"},
+      {"ingredient":"Gruyère oder Parmesan","amount":200,"unit":"g","note":"gerieben"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Zwiebeln in Butter und Öl anschwitzen und mit Salz und Zucker leicht karamellisieren.",
+        "2) Mehl einrühren und kurz mitrösten.",
+        "3) Mit heißem Fond aufgießen und unter Rühren glatt rühren.",
+        "4) 30 bis 40 Minuten bei mittlerer Hitze köcheln lassen.",
+        "5) Suppe in ofenfeste Schalen füllen, mit Baguettescheiben belegen, Käse darüberstreuen und im Ofen überbacken."
+    ]
+  },
+
+  {
+    "id": "r2",
+    "recipe_name": "Mollys Fleischbällchen mit Preiselbeerdip",
+    "hp_story": "Wenn die Weasleys alle am Tisch sitzen und es nach würzigen Fleischbällchen und süß-sauren Preiselbeeren duftet, ist klar: Molly hat wieder Großfamilienküche gezaubert.",
+    "cooking_time": 45,
+    "recipe_complexity": "einfach",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Molly Weasley",
+        "Ron Weasley",
+        "Weasley Familie"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Hackfleisch, gemischt","amount":300,"unit":"g","note":null},
+      {"ingredient":"Paniermehl","amount":40,"unit":"g","note":null},
+      {"ingredient":"Wasser","amount":100,"unit":"ml","note":"zum Quellen"},
+      {"ingredient":"Zwiebel","amount":60,"unit":"g","note":"fein gehackt"},
+      {"ingredient":"Ei","amount":1,"unit":"Stk","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"zum Würzen"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"zum Würzen"},
+      {"ingredient":"Butter","amount":2,"unit":"TL","note":"zum Braten"},
+      {"ingredient":"Sonnenblumenöl","amount":1,"unit":"EL","note":"zum Braten"},
+      {"ingredient":"Orange","amount":1,"unit":"Stk","note":"Abrieb und Saft"},
+      {"ingredient":"Preiselbeeren","amount":120,"unit":"g","note":null},
+      {"ingredient":"Blütenhonig","amount":4,"unit":"EL","note":null},
+      {"ingredient":"Essig","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Zimt","amount":1,"unit":"TL","note":null}
+    ],
+    "steps": [
+        "1) Paniermehl mit Wasser verrühren und 10 Minuten quellen lassen.",
+        "2) Hackfleisch mit Zwiebel, Ei und Paniermehl mischen, mit Salz und Pfeffer würzen und kleine Bällchen formen.",
+        "3) Bällchen in Butter und Öl rundherum goldbraun braten.",
+        "4) Für den Dip Orangensaft, Orangenabrieb, Preiselbeeren, Honig, Essig und Zimt in einem Topf erhitzen, kurz köcheln lassen und abschmecken.",
+        "5) Fleischbällchen zusammen mit dem Preiselbeerdip servieren."
+    ]
+  },
+
+ {
+    "id": "r3",
+    "recipe_name": "Hogwarts-Porridge",
+    "hp_story": "Morgens in der Großen Halle, Eulenpost über den Köpfen und ein Schüsselchen dampfendes Porridge vor sich – so beginnt ein typischer Schultag in Hogwarts.",
+    "cooking_time": 10,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Harry Potter",
+        "Ron Weasley",
+        "Hermine Granger"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Haferflocken","amount":100,"unit":"g","note":null},
+      {"ingredient":"Milch oder Wasser","amount":500,"unit":"ml","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"Prise"},
+      {"ingredient":"Honig oder Früchte","amount":null,"unit":null,"note":"zum Servieren"}
+    ],
+    "steps": [
+        "1) Haferflocken in einem Topf kurz anrösten.",
+        "2) Mit Milch oder Wasser aufgießen, eine Prise Salz zugeben und aufkochen.",
+        "3) Bei geringer Hitze unter Rühren köcheln, bis der Brei cremig ist.",
+        "4) Nach Wunsch mit Honig oder frischen Früchten servieren."
+    ]
+  },
+
+  {
+    "id": "r4",
+    "recipe_name": "Hogwarts-Schweinekoteletts",
+    "hp_story": "Bratkartoffeln, Erbsen, Pasteten und natürlich Fleisch: Die Festtafel in Hogwarts ist reich gedeckt. Würzige Schweinekoteletts mit Pilzsauce würden perfekt in die Reihen der Platten passen, über die Dumbledore hinweg zu seinen Schülern lächelt.",
+    "cooking_time": 40,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Albus Dumbledore",
+        "Hogwarts"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Champignons","amount":200,"unit":"g","note":"in Scheiben"},
+      {"ingredient":"Zwiebeln","amount":3,"unit":"Stk","note":"in Ringen"},
+      {"ingredient":"Schnittlauch","amount":1,"unit":"TL","note":"gehackt"},
+      {"ingredient":"Öl","amount":1,"unit":"EL","note":"zum Braten"},
+      {"ingredient":"Schweinekoteletts","amount":2,"unit":"Stk","note":null},
+      {"ingredient":"Weißwein","amount":100,"unit":"ml","note":null},
+      {"ingredient":"Fleischbrühe","amount":150,"unit":"ml","note":null},
+      {"ingredient":"Schlagsahne","amount":100,"unit":"ml","note":null},
+      {"ingredient":"Speisestärke","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Majoran","amount":0.5,"unit":"TL","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Champignons und Zwiebeln vorbereiten.",
+        "2) Koteletts im heißen Öl von beiden Seiten anbraten, salzen und pfeffern, dann herausnehmen.",
+        "3) Zwiebeln und Champignons im Bratfett anschwitzen.",
+        "4) Mit Weißwein ablöschen, etwas einkochen lassen, Brühe und Sahne hinzufügen.",
+        "5) Sauce mit Speisestärke binden und mit Salz, Pfeffer und Majoran abschmecken.",
+        "6) Koteletts in die Sauce legen und kurz ziehen lassen, mit Schnittlauch bestreut servieren."
+    ]
+  },
+
+  {
+    "id": "r5",
+    "recipe_name": "Hogwarts-Hackfleischauflauf",
+    "hp_story": "Wenn nach einem langen Quidditch-Spiel die gesamte Mannschaft hungrig in der Großen Halle einfällt, braucht es etwas Sättigendes. Ein Auflauf mit Kartoffeln, Hackfleisch und Käse wäre dafür wie gemacht.",
+    "cooking_time": 90,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Hogwarts"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Kartoffeln","amount":600,"unit":"g","note":"gekocht, in Scheiben"},
+      {"ingredient":"Paprika rot","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Paprika grün","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauchzehen","amount":2,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Olivenöl","amount":2,"unit":"EL","note":null},
+      {"ingredient":"Tomatenmark","amount":1,"unit":"TL","note":null},
+      {"ingredient":"Paprikapulver","amount":1,"unit":"TL","note":null},
+      {"ingredient":"Wasser","amount":100,"unit":"ml","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Petersilie","amount":1,"unit":"Bund","note":"gehackt"},
+      {"ingredient":"Hackfleisch, gemischt","amount":350,"unit":"g","note":null},
+      {"ingredient":"Schafskäse","amount":150,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Eier","amount":3,"unit":"Stk","note":null},
+      {"ingredient":"Eigelb","amount":1,"unit":"Stk","note":null},
+      {"ingredient":"Joghurt","amount":100,"unit":"g","note":null},
+      {"ingredient":"Sahne","amount":3,"unit":"EL","note":null}
+    ],
+    "steps": [
+        "1) Kartoffeln kochen, abkühlen lassen und in Scheiben schneiden.",
+        "2) Paprika und Knoblauch in Olivenöl anschwitzen, Tomatenmark und Paprikapulver zugeben, mit Wasser ablöschen und kurz köcheln lassen.",
+        "3) Schafskäse würfeln, Petersilie hacken und mit Hackfleisch mischen, salzen und pfeffern.",
+        "4) Eier, Eigelb, Joghurt und Sahne verquirlen.",
+        "5) Eine Auflaufform einfetten, Boden mit Kartoffelscheiben auslegen, Hackmasse darauf verteilen, mit einem Teil der Eiermischung begießen.",
+        "6) Weitere Kartoffelschicht darauf legen, restliche Eiermischung darüber gießen.",
+        "7) Im vorgeheizten Ofen bei 190 °C etwa 60 Minuten backen."
+    ]
+  },
+
+  {
+    "id": "r6",
+    "recipe_name": "Bouillabaisse",
+    "hp_story": "Als die Delegation aus Beauxbatons in Hogwarts eintraf, wurde zur Begrüßung unter anderem Bouillabaisse serviert – sehr zur Freude von Ron, der das fremde Gericht zwar nicht kannte, aber unbedingt probieren wollte.",
+    "cooking_time": 120,
+    "recipe_complexity": "anspruchsvoll",
+    "diet_type": "pescetarisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Ron Weasley",
+        "Harry Potter"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Gemischte Fischstücke","amount":1200,"unit":"g","note":"z. B. Rotbarsch, Seelachs"},
+      {"ingredient":"Miesmuscheln","amount":300,"unit":"g","note":"gewaschen"},
+      {"ingredient":"Zwiebeln","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauchzehen","amount":3,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Fenchelknolle","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Karotten","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Olivenöl","amount":3,"unit":"EL","note":null},
+      {"ingredient":"Tomatenmark","amount":2,"unit":"EL","note":null},
+      {"ingredient":"Stückige Tomaten (Dose)","amount":400,"unit":"g","note":null},
+      {"ingredient":"Weißwein","amount":250,"unit":"ml","note":null},
+      {"ingredient":"Fischfond oder Brühe","amount":1000,"unit":"ml","note":null},
+      {"ingredient":"Orange","amount":1,"unit":"Stk","note":"Schale und etwas Saft"},
+      {"ingredient":"Lorbeerblatt","amount":1,"unit":"Stk","note":null},
+      {"ingredient":"Thymian","amount":2,"unit":"Zweige","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Chiliflocken","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Petersilie","amount":null,"unit":null,"note":"zum Bestreuen"}
+    ],
+    "steps": [
+        "1) Gemüse in Olivenöl anschwitzen.",
+        "2) Tomatenmark kurz mitrösten, mit Weißwein ablöschen.",
+        "3) Tomaten, Fond, Lorbeer, Thymian und Orangenschale zugeben und 30–40 Minuten köcheln lassen.",
+        "4) Nach Wunsch die Suppe leicht passieren.",
+        "5) Fischstücke und Muscheln in die heiße Flüssigkeit geben und 7–10 Minuten ziehen lassen, nicht stark kochen.",
+        "6) Mit Salz, Pfeffer, Chili und etwas Orangensaft abschmecken und mit Petersilie bestreuen."
+    ]
+  },
+
+  {
+    "id": "r7",
+    "recipe_name": "Scottish Ale Stew",
+    "hp_story": "In den kühlen schottischen Highlands, irgendwo in der Nähe von Hogwarts, wärmt ein kräftiger Eintopf mit Ale und Rindfleisch nicht nur die Hände, sondern auch die Seele.",
+    "cooking_time": 180,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Hagrid",
+        "Hogwarts"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Karotten","amount":500,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Zwiebeln","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauchzehe","amount":1,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Staudensellerie","amount":2,"unit":"Stangen","note":"gewürfelt"},
+      {"ingredient":"Speiseöl","amount":5,"unit":"EL","note":"zum Anbraten"},
+      {"ingredient":"Rindergulasch","amount":800,"unit":"g","note":null},
+      {"ingredient":"Lorbeerblätter","amount":2,"unit":"Stk","note":null},
+      {"ingredient":"Wacholderbeeren","amount":3,"unit":"Stk","note":null},
+      {"ingredient":"Thymian","amount":0.5,"unit":"Bund","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pale Ale oder Bier","amount":800,"unit":"ml","note":"zum Schmoren"},
+      {"ingredient":"Kartoffeln","amount":500,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Johannisbeergelee","amount":2,"unit":"EL","note":null}
+    ],
+    "steps": [
+        "1) Gemüse vorbereiten und würfeln.",
+        "2) Rindfleisch im heißen Öl portionsweise scharf anbraten.",
+        "3) Gemüse kurz mitbraten, dann mit Bier aufgießen, bis alles bedeckt ist.",
+        "4) Lorbeer, Wacholder und Thymian hinzufügen, mit Salz und Pfeffer würzen.",
+        "5) Etwa 2,5 Stunden leise schmoren lassen.",
+        "6) Kartoffeln zugeben und weitere 30 Minuten mitschmoren.",
+        "7) Johannisbeergelee einrühren und abschmecken."
+    ]
+  },
+
+  {
+    "id": "r8",
+    "recipe_name": "Weihnachtsgulasch",
+    "hp_story": "Zu Weihnachten ist Hogwarts festlich geschmückt, die Tische biegen sich unter den Speisen. Ein würziges Gulasch mit winterlichen Gewürzen passt perfekt zu den knallenden Knallbonbons und Dumbledores schief sitzendem Papierhut.",
+    "cooking_time": 180,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Albus Dumbledore",
+        "Hogwarts"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Zwiebeln","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauchzehen","amount":5,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Karotten","amount":3,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Süßkartoffeln","amount":3,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Schweinegulasch","amount":500,"unit":"g","note":null},
+      {"ingredient":"Tomatenmark","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Gemüsebrühe","amount":200,"unit":"ml","note":null},
+      {"ingredient":"Rotwein","amount":150,"unit":"ml","note":"trocken"},
+      {"ingredient":"Geschälte Tomaten (Dose)","amount":400,"unit":"g","note":null},
+      {"ingredient":"Lorbeerblatt","amount":1,"unit":"Stk","note":null},
+      {"ingredient":"Wacholderbeeren","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Pimentkörner","amount":0.5,"unit":"EL","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Paprikapulver","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Petersilie","amount":1,"unit":"Bund","note":"gehackt"},
+      {"ingredient":"Zitronen","amount":2,"unit":"Stk","note":"Abrieb"}
+    ],
+    "steps": [
+        "1) Gemüse vorbereiten und würfeln.",
+        "2) Fleisch portionsweise scharf anbraten und herausnehmen.",
+        "3) Zwiebeln und Knoblauch im Bratfett anschwitzen, Karotten zugeben, Tomatenmark einrühren und kurz rösten.",
+        "4) Mit Rotwein ablöschen, Brühe und Tomaten zugeben, Lorbeer, Wacholder und Piment hinzufügen.",
+        "5) Fleisch zurück in den Topf geben, mit Salz, Pfeffer und Paprikapulver würzen und etwa 2 Stunden schmoren lassen.",
+        "6) Süßkartoffeln zugeben und weitere 30 Minuten mitköcheln.",
+        "7) Vor dem Servieren mit Petersilie und Zitronenabrieb bestreuen."
+    ]
+  },
+
+  {
+    "id": "r9",
+    "recipe_name": "Petunias Mulligatawny-Suppe",
+    "hp_story": "Harry bekam bei den Dursleys selten etwas Spannenderes als kalte Suppe oder trockene Gurkensandwiches. Man kann sich aber gut vorstellen, wie Tante Petunia versucht, mit einer exotisch klingenden Mulligatawny-Suppe Eindruck bei Besuch zu schinden.",
+    "cooking_time": 70,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Petunia Dursley",
+        "Harry Potter"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Zwiebel","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Karotte","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knollensellerie","amount":250,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Knoblauchzehe","amount":1,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Ingwer","amount":3,"unit":"cm","note":"gerieben"},
+      {"ingredient":"Rote Chilischote","amount":1,"unit":"Stk","note":"entkernt, gehackt"},
+      {"ingredient":"Currypulver","amount":2,"unit":"TL","note":null},
+      {"ingredient":"Garam Masala","amount":2,"unit":"TL","note":null},
+      {"ingredient":"Apfel","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Mango","amount":1,"unit":"Stk","note":"reif, gewürfelt"},
+      {"ingredient":"Mehl","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Hühnerbrühe","amount":1000,"unit":"ml","note":null},
+      {"ingredient":"Hähnchenbrust","amount":750,"unit":"g","note":"ganz"},
+      {"ingredient":"Kokosmilch","amount":250,"unit":"ml","note":null},
+      {"ingredient":"Cayennepfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Langkornreis","amount":100,"unit":"g","note":"gekocht"},
+      {"ingredient":"Limettensaft","amount":1,"unit":"Stk","note":"Saft"},
+      {"ingredient":"Koriander","amount":0.5,"unit":"Bund","note":"gehackt"}
+    ],
+    "steps": [
+        "1) Gemüse, Chili, Apfel und Mango vorbereiten.",
+        "2) Zwiebel, Karotte, Sellerie, Knoblauch, Ingwer und Chili in Öl anschwitzen.",
+        "3) Currypulver und Garam Masala zugeben, kurz mitrösten, dann Apfel und Mango hinzufügen.",
+        "4) Mehl einrühren, mit Hühnerbrühe aufgießen und Hähnchenbrust einlegen.",
+        "5) Etwa 20 Minuten köcheln lassen, Hähnchen herausnehmen, zerpflücken und zurück in die Suppe geben.",
+        "6) Kokosmilch einrühren, mit Limettensaft, Cayennepfeffer und Salz abschmecken.",
+        "7) Gekochten Reis und Koriander unterrühren oder separat dazu servieren."
+    ]
+  },
+
+  {
+    "id": "r10",
+    "recipe_name": "Dudleys Lieblingshamburger",
+    "hp_story": "Dudley Dursley liebt alles, was fettig, groß und möglichst wenig gesund ist. Ein selbst gemachter Hamburger mit Ei und Käse würde ihn sicher voll und ganz zufriedenstellen – sofern er nicht gerade offiziell auf Diät ist.",
+    "cooking_time": 60,
+    "recipe_complexity": "mittel",
+    "diet_type": "mit Fleisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Dursley"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Milch","amount":100,"unit":"ml","note":"lauwarm"},
+      {"ingredient":"Hefe (frisch)","amount":20,"unit":"g","note":null},
+      {"ingredient":"Mehl","amount":250,"unit":"g","note":null},
+      {"ingredient":"Zucker","amount":1,"unit":"TL","note":null},
+      {"ingredient":"Salz","amount":1,"unit":"TL","note":null},
+      {"ingredient":"Ei","amount":1,"unit":"Stk","note":"für den Teig"},
+      {"ingredient":"Öl","amount":1,"unit":"EL","note":"für den Teig"},
+      {"ingredient":"Rinderhackfleisch","amount":500,"unit":"g","note":null},
+      {"ingredient":"Paprika","amount":1,"unit":"Stk","note":"rot, gewürfelt"},
+      {"ingredient":"Rosmarin","amount":1,"unit":"TL","note":"getrocknet"},
+      {"ingredient":"Thymian","amount":1,"unit":"TL","note":"getrocknet"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Eier","amount":4,"unit":"Stk","note":"als Spiegelei"},
+      {"ingredient":"Käse","amount":4,"unit":"Scheiben","note":"z. B. Gouda oder Cheddar"},
+      {"ingredient":"Aioli","amount":4,"unit":"EL","note":"oder Mayonnaise"}
+    ],
+    "steps": [
+        "1) Hefeteig aus Milch, Hefe, Mehl, Zucker, Salz, Ei und Öl herstellen und 45–60 Minuten gehen lassen.",
+        "2) Teig zu 4 Brötchen formen, nochmals 15 Minuten gehen lassen und bei 200 °C 15–20 Minuten backen.",
+        "3) Hackfleisch mit Paprika, Rosmarin, Thymian, Salz und Pfeffer mischen und Patties formen.",
+        "4) Patties in einer Pfanne braten.",
+        "5) Spiegeleier braten.",
+        "6) Brötchen halbieren, mit Aioli bestreichen und mit Patty, Käse und Spiegelei belegen."
+    ]
+  },
+
+  {
+    "id": "r11",
+    "recipe_name": "Mrs Figgs Kohlpfanne",
+    "hp_story": "Harry war zwar wenig begeistert von den Nachmittagen bei Mrs Figg, aber man kann sich gut vorstellen, wie sie eine simple Kohlpfanne als gesundes Abendessen serviert – während ihre Katzen um die Beine schleichen.",
+    "cooking_time": 25,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Mrs Figg",
+        "Harry Potter"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Spitzkohl","amount":1,"unit":"Stk","note":"in Streifen geschnitten"},
+      {"ingredient":"Champignons","amount":250,"unit":"g","note":"in Scheiben"},
+      {"ingredient":"Zwiebeln","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauch","amount":2,"unit":"Zehen","note":"gehackt"},
+      {"ingredient":"Olivenöl","amount":2,"unit":"EL","note":"zum Braten"},
+      {"ingredient":"Sojasauce","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Paprikapulver","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Olivenöl in einer großen Pfanne erhitzen.",
+        "2) Zwiebeln und Knoblauch anschwitzen.",
+        "3) Champignons zugeben und kurz mitbraten.",
+        "4) Spitzkohl hinzufügen und 10–15 Minuten braten, bis er zusammengefallen ist.",
+        "5) Mit Sojasauce, Paprikapulver, Salz und Pfeffer abschmecken."
+    ]
+  },
+
+  {
+    "id": "r12",
+    "recipe_name": "Hamburger Paddington Station",
+    "hp_story": "Vor der Fahrt im Hogwarts-Express drängeln sich Schüler und Eltern am Bahnsteig. Ein schneller Burger in der Bahnhofshalle wäre genau das Richtige, bevor man auf Gleis 9¾ verschwindet.",
+    "cooking_time": 25,
+    "recipe_complexity": "einfach",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Harry Potter",
+        "Weasley"
+    ],
+    "servings": 1,
+    "ingredients": [
+      {"ingredient":"Hamburgerbrötchen","amount":1,"unit":"Stk","note":"angetoastet"},
+      {"ingredient":"Rinderhack-Patty","amount":150,"unit":"g","note":"gebraten"},
+      {"ingredient":"Käse","amount":1,"unit":"Scheibe","note":null},
+      {"ingredient":"Tomaten","amount":2,"unit":"Scheiben","note":null},
+      {"ingredient":"Zwiebeln","amount":null,"unit":null,"note":"fein geschnitten, nach Geschmack"},
+      {"ingredient":"Ketchup","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Mayonnaise","amount":1,"unit":"EL","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"zum Würzen"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"zum Würzen"}
+    ],
+    "steps": [
+        "1) Patty braten und mit Salz und Pfeffer würzen.",
+        "2) Brötchen toasten und mit Ketchup und Mayonnaise bestreichen.",
+        "3) Patty, Käse, Tomate und Zwiebel auf das Brötchen geben und servieren."
+    ]
+  },
+
+  {
+    "id": "r13",
+    "recipe_name": "Kokos-Kürbissuppe",
+    "hp_story": "Im Herbst füllt sich Hogwarts mit warmen Düften von Kürbis und Gewürzen – nicht nur wegen der Dekoration für das Halloween-Fest, sondern auch wegen herbstlicher Küche in der Großen Halle.",
+    "cooking_time": 30,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegan",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Hermine Granger",
+        "Hogwarts"
+    ],
+    "servings": 3,
+    "ingredients": [
+      {"ingredient":"Zwiebel","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Knoblauch","amount":2,"unit":"Zehen","note":"gehackt"},
+      {"ingredient":"Ingwer","amount":1,"unit":"cm","note":"gerieben"},
+      {"ingredient":"Kürbis (Hokkaido)","amount":800,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Kokosmilch","amount":400,"unit":"ml","note":null},
+      {"ingredient":"Gemüsebrühe","amount":250,"unit":"ml","note":null},
+      {"ingredient":"Olivenöl","amount":1,"unit":"EL","note":"zum Anbraten"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Currypulver","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Öl erhitzen und Zwiebel, Knoblauch und Ingwer anschwitzen.",
+        "2) Kürbiswürfel zugeben und kurz mitdünsten.",
+        "3) Mit Brühe aufgießen und etwa 15 Minuten köcheln, bis der Kürbis weich ist.",
+        "4) Kokosmilch zugeben und die Suppe fein pürieren.",
+        "5) Mit Salz, Pfeffer und Curry abschmecken."
+    ]
+  },
+
+  {
+    "id": "r14",
+    "recipe_name": "Pasta mit Kürbispesto",
+    "hp_story": "Kreative Gerichte wie Kürbispesto würden vermutlich in der Küche der Hauselfen entstehen, irgendwo zwischen dampfenden Kesseln und magisch schneidenden Messern.",
+    "cooking_time": 25,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Hermine Granger"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Pasta","amount":180,"unit":"g","note":"z. B. Penne"},
+      {"ingredient":"Kürbispüree","amount":200,"unit":"g","note":null},
+      {"ingredient":"Petersilie","amount":1,"unit":"EL","note":"gehackt"},
+      {"ingredient":"Parmesan","amount":50,"unit":"g","note":"gerieben"},
+      {"ingredient":"Walnüsse","amount":1,"unit":"TL","note":"gehackt"},
+      {"ingredient":"Kokosöl","amount":1,"unit":"TL","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Muskat","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Pasta in reichlich Salzwasser al dente kochen.",
+        "2) Öl erhitzen, Walnüsse kurz anrösten und Petersilie zugeben.",
+        "3) Kürbispüree einrühren und mit Salz, Pfeffer und Muskat würzen.",
+        "4) Pasta mit der Kürbissauce mischen und mit Parmesan bestreuen."
+    ]
+  },
+
+  {
+    "id": "r15",
+    "recipe_name": "Gegrillte Tomaten mit Würstchen",
+    "hp_story": "Ein rustikales Frühstück wie dieses könnte man sich gut bei Hagrid vorstellen: wenig Aufwand, viel Geschmack, ein großer Teller und dazu ein starker Tee.",
+    "cooking_time": 20,
+    "recipe_complexity": "einfach",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": [
+        "Hagrid",
+        "Harry Potter"
+    ],
+    "servings": 3,
+    "ingredients": [
+      {"ingredient":"Rispentomaten","amount":2,"unit":"Stk","note":"halbiert"},
+      {"ingredient":"Würstchen","amount":6,"unit":"Stk","note":"z. B. Frühstückswürstchen"},
+      {"ingredient":"Olivenöl","amount":1.5,"unit":"EL","note":"zum Bestreichen"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Petersilie","amount":null,"unit":null,"note":"gehackt, zum Garnieren"}
+    ],
+    "steps": [
+        "1) Würstchen in einer Pfanne oder auf dem Grill in Öl braten, bis sie gar und gebräunt sind.",
+        "2) Tomatenhälften mit Öl bestreichen und kurz mitgrillen oder braten.",
+        "3) Mit Salz und Pfeffer würzen und mit Petersilie bestreut servieren."
+    ]
+  },
+
+  {
+    "id": "r16",
+    "recipe_name": "Kartoffel-Lauch-Suppe",
+    "hp_story": "Zwischen Eulenpost und Zaubertrankprüfungen ist eine warme Suppe in der Großen Halle genau das, was man braucht. Diese einfache Kartoffel-Lauch-Variante passt wunderbar zur schlichten britischen Küche, die den Schülern serviert wird.",
+    "cooking_time": 35,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch (vegan möglich)",
+    "course_type": "Vorspeise",
+    "character": [
+        "Hogwarts"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Kartoffeln","amount":500,"unit":"g","note":"geschält und gewürfelt"},
+      {"ingredient":"Lauch","amount":2,"unit":"Stangen","note":"in Ringen"},
+      {"ingredient":"Zwiebel","amount":1,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Butter oder Öl","amount":1,"unit":"EL","note":"zum Anschwitzen"},
+      {"ingredient":"Gemüsebrühe","amount":1000,"unit":"ml","note":null},
+      {"ingredient":"Sahne oder Pflanzenmilch","amount":100,"unit":"ml","note":"optional zum Verfeinern"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Lauch und Zwiebel in Butter oder Öl anschwitzen.",
+        "2) Kartoffeln zugeben und kurz mitdünsten.",
+        "3) Mit Gemüsebrühe aufgießen und etwa 20 Minuten köcheln lassen, bis die Kartoffeln weich sind.",
+        "4) Suppe pürieren und nach Wunsch mit Sahne oder Pflanzenmilch verfeinern.",
+        "5) Mit Salz und Pfeffer abschmecken."
+    ]
+  },
+
+  {
+    "id": "r17",
+    "recipe_name": "Beef Tea",
+    "hp_story": "Beef Tea ist ein altbritisches Aufbaugetränk, das früher sogar Kranken gereicht wurde. In Hogwarts könnte Madam Pomfrey im Krankenflügel damit Schüler nach einer Begegnung mit einem magischen Biest wieder zu Kräften bringen.",
+    "cooking_time": 120,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Vorspeise",
+    "character": [
+        "Madam Pomfrey"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Rindfleisch","amount":300,"unit":"g","note":"klein gewürfelt"},
+      {"ingredient":"Wasser","amount":500,"unit":"ml","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Rindfleisch mit Wasser in einen Topf geben.",
+        "2) Bei sehr niedriger Hitze 1,5 bis 2 Stunden ziehen lassen, ohne stark zu kochen.",
+        "3) Flüssigkeit durch ein feines Sieb abseihen.",
+        "4) Mit Salz und Pfeffer abschmecken und heiß servieren."
+    ]
+  },
+
+  {
+    "id": "r18",
+    "recipe_name": "Fleischpasteten",
+    "hp_story": "Beim Festmahl im Hogwarts-Großsaal landen kleine Fleischpasteten oft zwischen Braten, Erbsen und Kartoffeln. Sie sind handlich genug, dass Ron sie stapelweise auf seinen Teller schaufeln könnte.",
+    "cooking_time": 45,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Vorspeise",
+    "character": [
+        "Ron Weasley",
+        "Hogwarts"
+    ],
+    "servings": 6,
+    "ingredients": [
+      {"ingredient":"Blätterteig","amount":1,"unit":"Rolle","note":null},
+      {"ingredient":"Hackfleisch (Rind oder gemischt)","amount":200,"unit":"g","note":null},
+      {"ingredient":"Zwiebel","amount":1,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Knoblauch","amount":1,"unit":"Zehe","note":"gehackt"},
+      {"ingredient":"Butter oder Öl","amount":1,"unit":"EL","note":"zum Braten"},
+      {"ingredient":"Paprikapulver","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Ei","amount":1,"unit":"Stk","note":"zum Bestreichen"}
+    ],
+    "steps": [
+        "1) Hackfleisch mit Zwiebel und Knoblauch in Butter oder Öl anbraten.",
+        "2) Mit Paprikapulver, Salz und Pfeffer würzen und etwas abkühlen lassen.",
+        "3) Blätterteig ausrollen und in Quadrate schneiden.",
+        "4) Jeweils einen Löffel Fleischfüllung auf ein Quadrat geben, zusammenklappen und die Ränder andrücken.",
+        "5) Mit verquirltem Ei bestreichen und bei 200 °C etwa 20 Minuten goldbraun backen."
+    ]
+  },
+
+  {
+    "id": "r19",
+    "recipe_name": "Rumfords Suppe",
+    "hp_story": "Diese einfache Erbsensuppe geht auf den Grafen von Rumford zurück, der gegen Armut und Hunger Suppenküchen organisierte. Im Hogwarts-Umfeld passt sie zu den bodenständigen Mahlzeiten, die den Schülern an kalten Tagen serviert werden.",
+    "cooking_time": 60,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Vorspeise",
+    "character": [
+        "Hogwarts"
+    ],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient":"Trockene Erbsen","amount":250,"unit":"g","note":"über Nacht eingeweicht oder Schnellkochvariante"},
+      {"ingredient":"Kartoffeln","amount":300,"unit":"g","note":"gewürfelt"},
+      {"ingredient":"Möhren","amount":2,"unit":"Stk","note":"gewürfelt"},
+      {"ingredient":"Zwiebel","amount":1,"unit":"Stk","note":"gehackt"},
+      {"ingredient":"Butter oder Öl","amount":1,"unit":"EL","note":"zum Anschwitzen"},
+      {"ingredient":"Wasser oder Gemüsebrühe","amount":1200,"unit":"ml","note":null},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"nach Geschmack"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"nach Geschmack"}
+    ],
+    "steps": [
+        "1) Zwiebel in Butter oder Öl anschwitzen.",
+        "2) Kartoffeln und Möhren zugeben und kurz mitdünsten.",
+        "3) Abgetropfte Erbsen hinzufügen und mit Wasser oder Brühe aufgießen.",
+        "4) 45–60 Minuten köcheln lassen, bis die Erbsen weich sind.",
+        "5) Nach Belieben pürieren oder stückig servieren und mit Salz und Pfeffer abschmecken."
+    ]
+  },
+
+  {
+    "id": "r20",
+    "recipe_name": "Dudleys Sandwiches",
+    "hp_story": "Bei den Dursleys gab es viel Toast, viel Schinken und wenig Gemüse. Dudley hätte sich für den Schulweg vermutlich ein ordentlich belegtes Sandwich mitgenommen – ohne auch nur einen Salatblattwiderstand zu dulden.",
+    "cooking_time": 10,
+    "recipe_complexity": "einfach",
+    "diet_type": "standard",
+    "course_type": "Vorspeise",
+    "character": [
+        "Dursley"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Toastbrot","amount":4,"unit":"Scheiben","note":"getoastet"},
+      {"ingredient":"Kochschinken","amount":4,"unit":"Scheiben","note":null},
+      {"ingredient":"Butter","amount":20,"unit":"g","note":"zum Bestreichen"},
+      {"ingredient":"Senf","amount":1,"unit":"TL","note":"optional"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"Prise, optional"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"Prise, optional"}
+    ],
+    "steps": [
+        "1) Toastscheiben leicht toasten und mit Butter bestreichen.",
+        "2) Nach Wunsch dünn mit Senf bestreichen.",
+        "3) Mit Schinkenscheiben belegen.",
+        "4) Mit einer zweiten Toastscheibe abdecken und diagonal halbieren.",
+        "5) Optional mit etwas Salz und Pfeffer würzen."
+    ]
+  },
+
+  {
+    "id": "r21",
+    "recipe_name": "Gurkensandwiches",
+    "hp_story": "Gurkensandwiches gehören zur britischen Teekultur wie Tee zu Mrs Weasley. Man kann sich gut vorstellen, wie McGonagall diese serviert, wenn Eltern zur Schulsprechstunde erscheinen.",
+    "cooking_time": 10,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Vorspeise",
+    "character": [
+        "McGonagall",
+        "Hermine Granger"
+    ],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient":"Weißbrot","amount":4,"unit":"Scheiben","note":"entrindet"},
+      {"ingredient":"Gurke","amount":0.5,"unit":"Stk","note":"in dünne Scheiben geschnitten"},
+      {"ingredient":"Butter","amount":20,"unit":"g","note":"zum Bestreichen"},
+      {"ingredient":"Zitrone","amount":null,"unit":null,"note":"einige Tropfen Zitronensaft"},
+      {"ingredient":"Salz","amount":null,"unit":null,"note":"Prise"},
+      {"ingredient":"Pfeffer","amount":null,"unit":null,"note":"Prise, optional"}
+    ],
+    "steps": [
+        "1) Brotscheiben dünn mit Butter bestreichen.",
+        "2) Gurkenscheiben gleichmäßig auf zwei Scheiben verteilen.",
+        "3) Mit etwas Zitronensaft, Salz und ggf. Pfeffer würzen.",
+        "4) Mit den übrigen Brotscheiben abdecken und diagonal halbieren."
+    ]
+  },
+
+  {
+    "id": "r22",
+    "recipe_name": "Pumpkin Pasties (Kürbistörtchen)",
+    "hp_story": "Die Kürbistörtchen sind ein ikonischer Hogwarts-Snack, der im Hogwarts-Express direkt aus dem Süßigkeitenwagen verkauft wird. Ron schultert gerne ein paar davon, während Harry bezahlt.",
+    "cooking_time": 50,
+    "recipe_complexity": "mittel",
+    "diet_type": "vegetarisch",
+    "course_type": "Nachtisch",
+    "character": ["Harry Potter", "Ron Weasley"],
+    "servings": 8,
+    "ingredients": [
+      {"ingredient": "Mürbeteig", "amount": 500, "unit": "g", "note": "fertig oder selbstgemacht"},
+      {"ingredient": "Kürbispüree", "amount": 300, "unit": "g", "note": null},
+      {"ingredient": "Zucker", "amount": 80, "unit": "g", "note": null},
+      {"ingredient": "Zimt", "amount": 1, "unit": "TL", "note": null},
+      {"ingredient": "Muskat", "amount": 0.25, "unit": "TL", "note": null},
+      {"ingredient": "Ei", "amount": 1, "unit": "Stk", "note": "verquirlt, zum Bestreichen"}
+    ],
+    "steps": [
+      "1) Kürbispüree mit Zucker, Zimt und Muskat verrühren.",
+      "2) Teig ausrollen und Kreise ausstechen.",
+      "3) Füllung in die Mitte setzen, Taschen schließen und einritzen.",
+      "4) Mit Ei bestreichen.",
+      "5) Bei 200°C ca. 20 bis 25 Minuten backen."
+    ]
+  },
+
+  {
+    "id": "r23",
+    "recipe_name": "Treacle Tart",
+    "hp_story": "Treacle Tart ist Harrys absoluter Lieblingskuchen und taucht bei festlichen Mahlzeiten in Hogwarts regelmäßig auf.",
+    "cooking_time": 70,
+    "recipe_complexity": "mittel",
+    "diet_type": "vegetarisch",
+    "course_type": "Nachtisch",
+    "character": ["Harry Potter"],
+    "servings": 10,
+    "ingredients": [
+      {"ingredient": "Mürbeteig", "amount": 500, "unit": "g", "note": null},
+      {"ingredient": "Golden Syrup", "amount": 400, "unit": "g", "note": null},
+      {"ingredient": "Semmelbrösel", "amount": 150, "unit": "g", "note": null},
+      {"ingredient": "Zitrone", "amount": 1, "unit": "Stk", "note": "Abrieb und Saft"},
+      {"ingredient": "Ei", "amount": 1, "unit": "Stk", "note": null}
+    ],
+    "steps": [
+      "1) Teig ausrollen und in Kuchenform legen.",
+      "2) Golden Syrup erhitzen und mit Bröseln, Zitronenabrieb und -saft mischen.",
+      "3) Ei unterrühren und in den Teig füllen.",
+      "4) Bei 180°C ca. 45 bis 50 Minuten backen."
+    ]
+  },
+
+  {
+    "id": "r24",
+    "recipe_name": "Chocolate Gateau",
+    "hp_story": "Dieser reichhaltige Schokokuchen taucht im Hogwarts-Festmahl auf – besonders zu Weihnachten oder zum Schuljahresende.",
+    "cooking_time": 60,
+    "recipe_complexity": "mittel",
+    "diet_type": "vegetarisch",
+    "course_type": "Nachtisch",
+    "character": ["Hogwarts", "Weasley Familie"],
+    "servings": 12,
+    "ingredients": [
+      {"ingredient": "Zartbitterschokolade", "amount": 200, "unit": "g", "note": null},
+      {"ingredient": "Butter", "amount": 200, "unit": "g", "note": null},
+      {"ingredient": "Zucker", "amount": 200, "unit": "g", "note": null},
+      {"ingredient": "Eier", "amount": 4, "unit": "Stk", "note": null},
+      {"ingredient": "Mehl", "amount": 200, "unit": "g", "note": null},
+      {"ingredient": "Backpulver", "amount": 1, "unit": "TL", "note": null}
+    ],
+    "steps": [
+      "1) Schokolade und Butter schmelzen.",
+      "2) Zucker und Eier einrühren.",
+      "3) Mehl und Backpulver zugeben und glattrühren.",
+      "4) Bei 180°C ca. 40 Minuten backen."
+    ]
+  },
+
+  {
+    "id": "r25",
+    "recipe_name": "Trifle",
+    "hp_story": "Ein festlicher britischer Schicht-Nachtisch aus Kuchen, Pudding, Frucht und Sahne, der perfekt auf das Weihnachtsbuffet im Großen Saal passen würde.",
+    "cooking_time": 30,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Nachtisch",
+    "character": ["Hogwarts"],
+    "servings": 8,
+    "ingredients": [
+      {"ingredient": "Biskuitkuchen", "amount": 300, "unit": "g", "note": "in Würfeln"},
+      {"ingredient": "Vanillepudding", "amount": 500, "unit": "g", "note": null},
+      {"ingredient": "Beerenmischung", "amount": 300, "unit": "g", "note": null},
+      {"ingredient": "Schlagrahm", "amount": 300, "unit": "ml", "note": null},
+      {"ingredient": "Zucker", "amount": 20, "unit": "g", "note": "für die Beeren"}
+    ],
+    "steps": [
+      "1) Beeren mit Zucker marinieren.",
+      "2) Biskuitwürfel in Glas schichten.",
+      "3) Beeren darüber, dann Pudding.",
+      "4) Mit Schlagrahm abschließen."
+    ]
+  },
+
+  {
+    "id": "r26",
+    "recipe_name": "Lemon Sherbet Pudding",
+    "hp_story": "Dumbledore liebt Zitronenbrausebonbons – dieser Pudding ist eine kulinarische Hommage an diesen Running-Gag.",
+    "cooking_time": 20,
+    "recipe_complexity": "einfach",
+    "diet_type": "vegetarisch",
+    "course_type": "Nachtisch",
+    "character": ["Albus Dumbledore"],
+    "servings": 4,
+    "ingredients": [
+      {"ingredient": "Zitrone", "amount": 2, "unit": "Stk", "note": "Saft und Abrieb"},
+      {"ingredient": "Zucker", "amount": 80, "unit": "g", "note": null},
+      {"ingredient": "Eigelb", "amount": 3, "unit": "Stk", "note": null},
+      {"ingredient": "Maisstärke", "amount": 1, "unit": "EL", "note": null},
+      {"ingredient": "Butter", "amount": 20, "unit": "g", "note": null},
+      {"ingredient": "Wasser", "amount": 250, "unit": "ml", "note": null}
+    ],
+    "steps": [
+      "1) Zucker, Eigelb und Stärke verrühren.",
+      "2) Zitronensaft und Wasser erhitzen.",
+      "3) Eigelbmischung einrühren und andicken.",
+      "4) Butter unterrühren."
+    ]
+  },
+
+  {
+    "id": "r27",
+    "recipe_name": "Steak & Kidney Pie",
+    "hp_story": "Ein klassischer englischer Pub-Pie, der perfekt zur Hogwarts-Großen Halle passt: herzhaft, sättigend, rustikal.",
+    "cooking_time": 150,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": ["Hogwarts"],
+    "servings": 6,
+    "ingredients": [
+      {"ingredient": "Rindfleisch, gewürfelt", "amount": 600, "unit": "g", "note": null},
+      {"ingredient": "Kalbsniere", "amount": 200, "unit": "g", "note": "geputzt"},
+      {"ingredient": "Zwiebeln", "amount": 200, "unit": "g", "note": "gewürfelt"},
+      {"ingredient": "Mehl", "amount": 2, "unit": "EL", "note": null},
+      {"ingredient": "Rinderbrühe", "amount": 500, "unit": "ml", "note": null},
+      {"ingredient": "Blätterteig", "amount": 1, "unit": "Rolle", "note": null},
+      {"ingredient": "Öl", "amount": 2, "unit": "EL", "note": null},
+      {"ingredient": "Salz", "amount": null, "unit": null, "note": "nach Geschmack"},
+      {"ingredient": "Pfeffer", "amount": null, "unit": null, "note": "nach Geschmack"}
+    ],
+    "steps": [
+      "1) Fleisch und Niere anbraten.",
+      "2) Zwiebeln zugeben und Mehl einrühren.",
+      "3) Mit Brühe ablöschen und 1–1,5 Stunden schmoren.",
+      "4) In Auflaufform füllen und mit Teig abdecken.",
+      "5) Bei 200°C ca. 30 Minuten backen."
+    ]
+  },
+
+  {
+    "id": "r28",
+    "recipe_name": "Beef & Ale Pie",
+    "hp_story": "Ein deftiger Fleisch-Pie aus Rind und dunklem Ale, wie man ihn in britischen Pubs bekommt – perfekt für hungrige Zauberer nach einem Quidditch-Match.",
+    "cooking_time": 180,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": ["Gryffindor", "Quidditch-Team"],
+    "servings": 6,
+    "ingredients": [
+      {"ingredient": "Rindfleisch, gewürfelt", "amount": 700, "unit": "g", "note": null},
+      {"ingredient": "Zwiebeln", "amount": 200, "unit": "g", "note": "gewürfelt"},
+      {"ingredient": "Karotten", "amount": 150, "unit": "g", "note": "gewürfelt"},
+      {"ingredient": "Ale (dunkel)", "amount": 300, "unit": "ml", "note": null},
+      {"ingredient": "Rinderbrühe", "amount": 300, "unit": "ml", "note": null},
+      {"ingredient": "Blätterteig", "amount": 1, "unit": "Rolle", "note": null},
+      {"ingredient": "Mehl", "amount": 2, "unit": "EL", "note": null},
+      {"ingredient": "Öl", "amount": 2, "unit": "EL", "note": null},
+      {"ingredient": "Salz", "amount": null, "unit": null, "note": null},
+      {"ingredient": "Pfeffer", "amount": null, "unit": null, "note": null}
+    ],
+    "steps": [
+      "1) Fleisch anbraten und mit Mehl bestäuben.",
+      "2) Gemüse zugeben und kurz braten.",
+      "3) Mit Ale ablöschen und Brühe zugeben.",
+      "4) 2 Stunden schmoren.",
+      "5) In Form füllen, mit Teig abdecken und 30 Minuten bei 200°C backen."
+    ]
+  },
+
+  {
+    "id": "r29",
+    "recipe_name": "Fish & Chips",
+    "hp_story": "Fish & Chips ist der Nationalklassiker Englands und eine typische Muggelmahlzeit – könnte so samstags bei den Dursleys landeten.",
+    "cooking_time": 40,
+    "recipe_complexity": "mittel",
+    "diet_type": "pescetarisch",
+    "course_type": "Hauptspeise",
+    "character": ["Dursley"],
+    "servings": 2,
+    "ingredients": [
+      {"ingredient": "Kabeljaufilet", "amount": 300, "unit": "g", "note": null},
+      {"ingredient": "Mehl", "amount": 100, "unit": "g", "note": null},
+      {"ingredient": "Bier", "amount": 150, "unit": "ml", "note": "für Backteig"},
+      {"ingredient": "Salz", "amount": null, "unit": null, "note": null},
+      {"ingredient": "Öl", "amount": 1000, "unit": "ml", "note": "zum Frittieren"},
+      {"ingredient": "Kartoffeln", "amount": 400, "unit": "g", "note": "in Sticks"},
+      {"ingredient": "Essig", "amount": null, "unit": null, "note": "zum Servieren"}
+    ],
+    "steps": [
+      "1) Kartoffeln zu Pommes schneiden und frittieren.",
+      "2) Backteig aus Mehl, Bier und Salz rühren.",
+      "3) Fisch durch Teig ziehen und frittieren.",
+      "4) Mit Essig servieren."
+    ]
+  },
+
+  {
+    "id": "r30",
+    "recipe_name": "Roast Beef mit Yorkshire Pudding",
+    "hp_story": "Britischer Sonntagsklassiker: zartes Roastbeef mit fluffigen Yorkshire Puddings – perfekt für ein großes Hogwarts-Festmahl.",
+    "cooking_time": 120,
+    "recipe_complexity": "mittel",
+    "diet_type": "standard",
+    "course_type": "Hauptspeise",
+    "character": ["Hogwarts", "McGonagall"],
+    "servings": 6,
+    "ingredients": [
+      {"ingredient": "Rinderbraten", "amount": 1200, "unit": "g", "note": null},
+      {"ingredient": "Salz", "amount": null, "unit": null, "note": null},
+      {"ingredient": "Pfeffer", "amount": null, "unit": null, "note": null},
+      {"ingredient": "Öl", "amount": 2, "unit": "EL", "note": null},
+      {"ingredient": "Eier", "amount": 3, "unit": "Stk", "note": null},
+      {"ingredient": "Mehl", "amount": 150, "unit": "g", "note": null},
+      {"ingredient": "Milch", "amount": 200, "unit": "ml", "note": null}
+    ],
+    "steps": [
+      "1) Roastbeef kräftig salzen und pfeffern.",
+      "2) In Öl anbraten und bei 180°C ca. 60 bis 80 Minuten garen.",
+      "3) Für Yorkshire Pudding Teig aus Mehl, Milch und Eiern herstellen.",
+      "4) In Muffinform bei 220°C ca. 20 Minuten backen.",
+      "5) Mit Roastbeef servieren."
+    ]
+  }
+]
