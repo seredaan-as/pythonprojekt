@@ -9,14 +9,14 @@ import time  # Modul für Zeitfunktionen importieren (Zeitverzögerung zwischen 
 # ----------------------------------------------------
 
 def main():
-    recipes = load_recipes
+    recipes = load_recipes()
     name = greet_user()
 
     while True:
         choice = show_main_menu()
         
         if choice == 1:
-            find_recipe_flow()
+            find_recipe_flow(recipes)
         elif choice == 2:
             filter_by_complexity()
         elif choice == 3:
@@ -27,4 +27,6 @@ def main():
         else:
             print("Die Küchenelfen kennen diese Zahl leider nicht. Probier es mit einer anderen.")
 
-main()
+
+if __name__ == "__main__":
+    main()

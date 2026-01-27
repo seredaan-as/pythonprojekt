@@ -6,7 +6,7 @@ json_file = "hp_recipes.json"
 
 def load_recipes() -> list[dict]:
     try:
-        with open(json_file, "r") as f:           # Fehlerbehandlung: Die Datei wird nach der Ausführunf im with-Block automatisch geschlossen
+        with open(json_file, "r", encoding="utf-8") as f:           # Fehlerbehandlung: Die Datei wird nach der Ausführunf im with-Block automatisch geschlossen
             recipes = json.load(f)
         return recipes
     except FileNotFoundError:
