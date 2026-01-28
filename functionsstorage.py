@@ -1,5 +1,12 @@
 
-        
+
+#Inputs
+
+  from ui import input_recipe
+from storage import save_recipes
+import random
+from functionstorage import get_random_recipe     
+from ui import choose_recipe_index, show_recipe_details         
 
 # weitere Hilfsfunktionen
 
@@ -60,6 +67,7 @@ def filter_by_time(recipes: list[dict], max_minutes: int) -> list[dict]:
 
     return result
 
+
 def select_recipe_from_list(recipes: list[dict]):
     """Shows filtered recipes with index, 
     asks user to choose a recipe,
@@ -110,6 +118,56 @@ def show_recipe_details (recipe:dict):
             print(f" {step}")
 
     print("\nViel Spaß beim Kochen!")
+
+
+# def handle_charakter_flow(recipes):
+#     print ("\n Charakter Menü")
+#     ToDo LES: Charakter menü anlegen
+
+
+# def handle_manage_recipies_flow(recipes):
+#     print("\n Rezepte verwalten")
+#     ToDo LES: Rezepte verwalten menü anlegen
+
+
+def find_recipe_flow(recipes):
+    recipe = get_random_recipe(recipes)
+    if recipe:
+        print(f"Heutiger Vorschlag: {recipe['title']}")
+    else:
+        print("Leider kein Rezept gefunden (keine Rezepte geladen).")
+
+
+def show_recipe_flow(recipes):
+    idx = choose_recipe_index(recipes)
+    if idx is None:
+        return
+    show_recipe_details(recipes[idx])
+
+
+def add_recipe_flow(recipes):
+    print("\n Rezept anlegen")
+    new_recipe = input_recipe()
+    if new_recipe is None:
+        return recipes
+
+    # optional: Duplikate nach Titel verhindern/überschreiben
+    for i, r in enumerate(recipes):
+        if r.get("title") == new_recipe["title"]:
+            choice = input("Rezept existiert schon. Überschreiben? (j/n): ").strip().lower()
+            if choice in ("j", "ja", "y", "yes"):
+                recipes[i] = new_recipe
+                save_recipes(recipes)
+                print("Rezept überschrieben & gespeichert.")
+            else:
+                print("Abgebrochen.")
+            return recipes
+
+    recipes.append(new_recipe)
+    save_recipes(recipes)
+    print("Rezept gespeichert.")
+    return recipes
+
 
     #--------------- Menü als Schleife, um andere Auswahl abzufangen -----------------
     while True:
