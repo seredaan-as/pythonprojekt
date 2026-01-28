@@ -72,3 +72,92 @@ def show_main_menu():
     return choice
     
 
+def list_recipes(recipes):
+    print("\n-- Rezeptliste --")
+    if not recipes:
+        print("Keine Rezepte vorhanden")
+        return
+    for i, r in enumerate(recipes, start=1):
+        print(f"{i} - {r['title']}")
+
+    
+def choose_recipe_index(recipes):
+    if not recipes:
+        return None
+    list_recipes(recipes)
+    idx = read_int("Welche Nummer möchtest du ansehen? (0 = Abbrechen): ")
+    if idx == 0:
+        return None
+    if idx < 1 or idx > len(recipes):
+        print("Ungültige Nummer.")
+        return None
+    return idx - 1
+
+
+def show_recipe_details(recipe):
+    print(f"\n=== {recipe['title']} ===")
+
+    print("\nZutaten:")
+    for z in recipe.get("ingredients", []):
+        # Erwartetes Format: {"name": "...", "amount": ..., "unit": "..."}
+        print(f"- {z['name']}: {z['amount']} {z['unit']}")
+
+    print("\nSchritte:")
+    for i, step in enumerate(recipe.get("steps", []), start=1):
+        print(f"{i}. {step}")
+
+
+def input_ingredients():
+    print("\nZutaten eingeben im Format: Name;Menge;Einheit (z.B. Mehl;200;g)")
+    print("Leere Eingabe beendet die Zutatenliste.")
+    ingredients = []
+
+    while True:
+        line = input("Zutat: ").strip()
+        if line == "":
+            break
+
+        parts = [p.strip() for p in line.split(";")]
+        if len(parts) != 3:
+            print("Ungültiges Format. Bitte genau: Name;Menge;Einheit")
+            continue
+
+        name, amount_str, unit = parts
+        if not name or not unit:
+            print("Name und Einheit dürfen nicht leer sein.")
+            continue
+
+        try:
+            amount = float(amount_str.replace(",", "."))
+        except ValueError:
+            print("Menge muss eine Zahl sein.")
+            continue
+
+        ingredients.append({"name": name, "amount": amount, "unit": unit})
+
+    return ingredients
+
+
+def input_steps():
+    print("\nSchritte eingeben (je Zeile ein Schritt). Leere Eingabe beendet.")
+    steps = []
+    i = 1
+    while True:
+        step = input(f"Schritt {i}: ").strip()
+        if step == "":
+            break
+        steps.append(step)
+        i += 1
+    return steps
+
+
+def input_recipe():
+    title = input("Rezept-Titel: ").strip()
+    if not title:
+        print("Titel darf nicht leer sein.")
+        return None
+
+    ingredients = input_ingredients()
+    steps = input_steps()
+
+    return {"title": title, "ingredients": ingredients, "steps": steps}

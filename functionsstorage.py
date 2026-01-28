@@ -7,6 +7,7 @@ from storage import save_recipes
 import random
 from functionstorage import get_random_recipe     
 from ui import choose_recipe_index, show_recipe_details         
+import random
 
 # weitere Hilfsfunktionen
 
@@ -168,6 +169,11 @@ def add_recipe_flow(recipes):
     print("Rezept gespeichert.")
     return recipes
 
+
+def get_random_recipe(recipies):
+    if not recipies:
+        return None
+    return random.choice(recipies)
 
     #--------------- Menü als Schleife, um andere Auswahl abzufangen -----------------
     while True:
