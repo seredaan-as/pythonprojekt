@@ -1,5 +1,5 @@
 # Menüs + Anzeige Funktionen
-from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, select_recipe_from_list, show_recipe_details  
+from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character
 from storage import load_recipes, save_recipes
 import time
 
@@ -35,7 +35,8 @@ def find_recipe_flow(recipes):
         selected = select_recipe_from_list(filtered)        #Result: chosen recipe
 
         if selected is not None: 
-            print(f"\nDu hast gewählt: {selected["recipe_name"]}")        
+            chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
+            print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
 
         if selected is None: 
@@ -47,7 +48,7 @@ def find_recipe_flow(recipes):
     elif choice == 4:
         filter_by_course()
     elif choice == 5:
-        get_random_recipe()
+        get_random_recipe(recipes)
     elif choice == 6:
         print("Hauptmenü wird geladen...")
         time.sleep(2)
@@ -84,12 +85,12 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
         elif choice == 2:
             selected = select_recipe_from_list(recipes)
             if selected:
-                show_recipe_detail_flow(selected)
+                show_recipe_details(selected)
         elif choice == 3:
             recipe_name = input("Rezeptname eingeben: ").strip()
             found = next((r for r in recipes if r.get('recipe_name', '').lower() == recipe_name.lower()), None)
             if found:
-                show_recipe_detail_flow(found)
+                show_recipe_details(found)
             else:
                 print("Rezept nicht gefunden.")
         elif choice == 4:
@@ -99,7 +100,7 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
             if filtered:
                 selected = select_recipe_from_list(filtered)
                 if selected:
-                    show_recipe_detail_flow(selected)
+                    show_recipe_details(selected)
             else:
                 print("Keine Rezepte mit dieser Zutat gefunden.")
         elif choice == 5:
@@ -138,7 +139,8 @@ def list_recipes(recipes):
         print("Keine Rezepte vorhanden")
         return
     for i, r in enumerate(recipes, start=1):
-        print(f"{i} - {r['title']}")
+        name = r.get("title") or r.get("recipe_name") or "Unbekanntes Rezept"
+        print(f"{i} - {name}")
 
     
 def choose_recipe_index(recipes):
@@ -155,12 +157,17 @@ def choose_recipe_index(recipes):
 
 
 def show_recipe_details(recipe):
-    print(f"\n=== {recipe['title']} ===")
+    title = recipe.get("title") or recipe.get("recipe_name") or "Unbekanntes Rezept"
+    print(f"\n=== {title} ===")
 
     print("\nZutaten:")
     for z in recipe.get("ingredients", []):
         # Erwartetes Format: {"name": "...", "amount": ..., "unit": "..."}
-        print(f"- {z['name']}: {z['amount']} {z['unit']}")
+        name = z.get("name") or z.get("ingredient") or ""
+        amount = z.get("amount", "")
+        unit = z.get("unit", "")
+        if name:
+            print(f"- {name}: {amount} {unit}".rstrip())
 
     print("\nSchritte:")
     for i, step in enumerate(recipe.get("steps", []), start=1):
@@ -176,7 +183,7 @@ def select_recipe_from_list(recipes: list[dict]) -> dict:
     print("\n" + "=" * 60)
     print("Gefundene Rezepte:\n" + "=" * 60)
     for i, recipe in enumerate(recipes, 1):
-        name = recipe.get('recipe_name', 'Unbekanntes Rezept')
+        name = recipe.get('recipe_name') or recipe.get("title") or 'Unbekanntes Rezept'
         t = recipe.get('cooking_time', '?')
         complexity = recipe.get('recipe_complexity', '?')
         print(f"{i}) {name} ({t} Min, {complexity})")
@@ -277,7 +284,7 @@ def handle_character_flow(recipes: list[dict]) -> None:
             print(f"\nRezepte für {selected_character}:")
             selected_recipe = select_recipe_from_list(filtered)
             if selected_recipe:
-                show_recipe_detail_flow(selected_recipe)
+                show_recipe_details(selected_recipe)
         else:
             print(f"Keine Rezepte für {selected_character} gefunden.")
     else:

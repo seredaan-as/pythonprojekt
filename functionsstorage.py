@@ -1,12 +1,5 @@
-
-
 #Inputs
-
-  from ui import input_recipe
 from storage import save_recipes
-import random
-from functionstorage import get_random_recipe     
-from ui import choose_recipe_index, show_recipe_details         
 import random
 from typing import List, Dict
 
@@ -82,7 +75,7 @@ def select_recipe_from_list(recipes: list[dict]):
     
     print("\nDie Küchenelfen haben gerührt und folgende Rezepte gefunden:")
     for index, recipe in enumerate(recipes, start=1):
-        print(f"{index}) {recipe["recipe_name"]} ({recipe["cooking_time"]} Minuten)")
+        print(f"{index}) {recipe['recipe_name']} ({recipe['cooking_time']} Minuten)")
 
     choice = read_int("Sprich eine Zahl, und das Rezept öffnet sich wie von Zauberhand. Mit 0 gelangst du zurück.: ")
     if choice == 0:
@@ -97,15 +90,15 @@ def select_recipe_from_list(recipes: list[dict]):
 def show_recipe_details (recipe:dict):
     """Displays full recipe details"""
     print("\n📜 Rezeptrolle wird entrollt...\n")
-    print(f"Rezept: {recipe["recipe_name"]}")
+    print(f"Rezept: {recipe['recipe_name']}")
     if recipe.get("hp_story"):
         print("Erstmal etwas Zauberhaftes zu diesem Rezept aus dem Magie-Universum:")
-        print(f"\n{recipe["hp_story"]}\n")
-    print(f"Zeit: {recipe["cooking_time"]} Minuten")
-    print(f"Schwierigkeitsgrad: {recipe["recipe_complexity"]}")
-    print(f"Ernährungsform: {recipe["diet_type"]}")
-    print(f"Gerichtstyp: {recipe["course_type"]}")
-    print(f"Zeit: {recipe["cooking_time"]} Minuten")
+        print(f"\n{recipe['hp_story']}\n")
+    print(f"Zeit: {recipe['cooking_time']} Minuten")
+    print(f"Schwierigkeitsgrad: {recipe['recipe_complexity']}")
+    print(f"Ernährungsform: {recipe['diet_type']}")
+    print(f"Gerichtstyp: {recipe['course_type']}")
+    print(f"Zeit: {recipe['cooking_time']} Minuten")
     if recipe.get("ingredients"):
         print("\n Zutaten:")
         for ing in recipe["ingredients"]:
@@ -141,6 +134,7 @@ def find_recipe_flow(recipes):
 
 
 def show_recipe_flow(recipes):
+    from ui import choose_recipe_index, show_recipe_details
     idx = choose_recipe_index(recipes)
     if idx is None:
         return
@@ -149,6 +143,7 @@ def show_recipe_flow(recipes):
 
 def add_recipe_flow(recipes):
     print("\n Rezept anlegen")
+    from ui import input_recipe
     new_recipe = input_recipe()
     if new_recipe is None:
         return recipes

@@ -1,7 +1,7 @@
 #Start des Programms: Einstieg, Hauptschleife
 
-from functionsstorage import read_int
-from ui import greet_user, show_main_menu, find_recipe_flow, filter_by_complexity, filter_by_diet
+from ui import greet_user, show_main_menu, find_recipe_flow
+from functionsstorage import filter_by_complexity, filter_by_diet
 from storage import load_recipes, save_recipes
 import time  # Modul für Zeitfunktionen importieren (Zeitverzögerung zwischen den Ausgaben)
 
