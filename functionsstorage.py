@@ -6,10 +6,6 @@ from typing import List, Dict
 # weitere Hilfsfunktionen
 
 
-def filter_by_course():  
-    pass
-
-
 def create_new_recipe():  
     pass
 
@@ -240,6 +236,13 @@ def filter_by_diet(recipes: list[dict], diet: str) -> list[dict]:
     return result
 
 
+## Spezifisch: 1.4 Rezept zufällig auswählen
+
+
+def filter_by_course():  
+    pass
+
+
 ## Spezifisch: 1.5 Rezept zufällig auswählen
 
 
@@ -252,6 +255,9 @@ def get_random_recipe(recipes: list[dict]):
 
 #  2
 ## Spezifisch 2. ....
+
+
+
 
 
 #  3

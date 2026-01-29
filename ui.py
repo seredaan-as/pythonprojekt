@@ -243,7 +243,6 @@ def adjust_recipes_flow():
     pass
 
     
-
 def list_recipes(recipes):
     print("\n-- Rezeptliste --")
     if not recipes:
@@ -307,9 +306,6 @@ def select_recipe_from_list(recipes: list[dict]) -> dict:
         return recipes[choice - 1]
     print("Ungültige Auswahl.")
     return None
-
-
-
 
 
 def input_ingredients():
