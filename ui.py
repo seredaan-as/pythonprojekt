@@ -1,5 +1,5 @@
 # Menüs + Anzeige Funktionen
-from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient
+from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient, show_recipe_details
 from storage import load_recipes, save_recipes
 import time
 
@@ -55,11 +55,12 @@ def find_recipe_flow(recipes):
             print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
 
+
         if selected is None: 
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept ist erschienen. Versuche eine andere Zauberformel (äh… Auswahl).")
     
     elif choice == 2:
-        print("Welche Komplexität wünschst du dir heute?")
+        print("Welchen Schwierigkeitsgrad soll dein Rezeptzauber haben?")
         print("1) leicht")
         print("2) mittel")
         print("3) anspruchsvoll")

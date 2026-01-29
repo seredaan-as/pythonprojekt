@@ -359,7 +359,7 @@
     "diet_type": "mit Fleisch",
     "course_type": "Hauptspeise",
     "character": [
-        "Dursley"
+        "Dudley Dursley"
     ],
     "servings": 4,
     "ingredients": [
@@ -433,7 +433,7 @@
     "course_type": "Hauptspeise",
     "character": [
         "Harry Potter",
-        "Weasley"
+        "Weasley Familie"
     ],
     "servings": 1,
     "ingredients": [
@@ -677,7 +677,7 @@
     "diet_type": "standard",
     "course_type": "Vorspeise",
     "character": [
-        "Dursley"
+        "Dursley Familie"
     ],
     "servings": 2,
     "ingredients": [
@@ -924,7 +924,7 @@
     "recipe_complexity": "mittel",
     "diet_type": "pescetarisch",
     "course_type": "Hauptspeise",
-    "character": ["Dursley"],
+    "character": ["Dursley Familie"],
     "servings": 2,
     "ingredients": [
       {"ingredient": "Kabeljaufilet", "amount": 300, "unit": "g", "note": null},

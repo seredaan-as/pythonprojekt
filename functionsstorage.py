@@ -1,7 +1,11 @@
 #Inputs
-from storage import save_recipes
+from storage import save_recipes, load_recipes
 import random
 from typing import List, Dict
+import json
+import time
+
+
 
 # weitere Hilfsfunktionen
 
@@ -19,9 +23,6 @@ def create_grocery_list():
 
 # ______________ ab hier fertige Funktionen ____________________________________
 
-import json
-import time
-from typing import List, Dict 
 
 
 ## Übergreifend (3.1, 2.2, 2.3, )
@@ -61,7 +62,7 @@ def select_recipe_from_list(recipes: list[dict]):
     return None
 
 
-def show_recipe_details (recipe:dict):
+def show_recipe_details (recipe:dict):                          
     """Displays full recipe details"""
     print("\n Rezeptrolle wird entrollt...\n")
     print(f"Rezept: {recipe['recipe_name']}")
@@ -87,6 +88,7 @@ def show_recipe_details (recipe:dict):
             print(f" {step}")
 
     print("\nViel Spaß beim Kochen!")
+    mini_menu()
 
 
 def show_recipe_flow(recipes):
@@ -122,7 +124,9 @@ def add_recipe_flow(recipes):
     return recipes
 
 
-    #--------------- Menü als Schleife, um andere Auswahl abzufangen -----------------
+    #-------Menü für die Rezeptdetailansicht als Schleife, um andere Auswahl abzufangen ----
+    
+def mini_menu():
     while True:
         print("\nWas möchtest du als Nächstes tun?")
         print("1) Portionen anpassen")
@@ -131,9 +135,10 @@ def add_recipe_flow(recipes):
         choice = read_int("Sprich eine Zahl: ")
 
         if choice == 1:
-            adjust_portions()         #noch anzupassen + funk azulegen
+            target_servings = read_int("Auf wie viele Portionen anpassen? ")
+            recipe = adjust_portions(recipe, target_servings)                   #Anmerkung: Damit wird das Rezept in dieser Laufzeit überschrieben, d.h. Einkaufszettel, weitere Anpassungen basieren auf dem neuen Rezept      
         elif choice == 2:
-            create_grocery_list()    #noch anzupassen + funk azulegen
+            create_grocery_list()    #noch anzupassen + funk anzulegen
         elif choice == 3:
             print("Hauptmenü wird geladen...")
             time.sleep(2)
@@ -227,7 +232,7 @@ def filter_by_diet(recipes: list[dict], diet: str) -> list[dict]:
     return result
 
 
-## Spezifisch: 1.4 Rezept zufällig auswählen
+## Spezifisch: 1.4 Filtern nach 
 
 
 def filter_by_course():  
