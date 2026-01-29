@@ -1,5 +1,5 @@
 # Menüs + Anzeige Funktionen
-from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character
+from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient
 from storage import load_recipes, save_recipes
 import time
 
@@ -155,8 +155,7 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
         )
         choice = read_int("Auswahl: ")
 
-        if choice == 1:
-            from functionsstorage import create_new_recipe
+        if choice == 1:            
             new_recipe = create_new_recipe()
             if new_recipe:
                 recipes.append(new_recipe)
@@ -172,8 +171,7 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
                 show_recipe_details(found)
             else:
                 print("Rezept nicht gefunden.")
-        elif choice == 4:
-            from functionsstorage import search_by_ingredient
+        elif choice == 4:            
             ingredient = input("Zutat eingeben: ").strip()
             filtered = search_by_ingredient(recipes, ingredient)
             if filtered:
@@ -283,85 +281,16 @@ def show_recipe_details(recipe):
 ## ToDo! Ohne Sortierung #########################################
 
 
-def adjust_recipes_flow():
-    pass
+# def adjust_recipes_flow():
+#     pass
 
     
-def list_recipes(recipes):
-    print("\n-- Rezeptliste --")
-    if not recipes:
-        print("Keine Rezepte vorhanden")
-        return
-    for i, r in enumerate(recipes, start=1):
-        name = r.get("title") or r.get("recipe_name") or "Unbekanntes Rezept"
-        print(f"{i} - {name}")
-
-    
-def choose_recipe_index(recipes):
-    if not recipes:
-        return None
-    list_recipes(recipes)
-    idx = read_int("Welche Nummer möchtest du ansehen? (0 = Abbrechen): ")
-    if idx == 0:
-        return None
-    if idx < 1 or idx > len(recipes):
-        print("Ungültige Nummer.")
-        return None
-    return idx - 1
-
-
-def input_ingredients():
-    print("\nZutaten eingeben im Format: Name;Menge;Einheit (z.B. Mehl;200;g)")
-    print("Leere Eingabe beendet die Zutatenliste.")
-    ingredients = []
-
-    while True:
-        line = input("Zutat: ").strip()
-        if line == "":
-            break
-
-        parts = [p.strip() for p in line.split(";")]
-        if len(parts) != 3:
-            print("Ungültiges Format. Bitte genau: Name;Menge;Einheit")
-            continue
-
-        name, amount_str, unit = parts
-        if not name or not unit:
-            print("Name und Einheit dürfen nicht leer sein.")
-            continue
-
-        try:
-            amount = float(amount_str.replace(",", "."))
-        except ValueError:
-            print("Menge muss eine Zahl sein.")
-            continue
-
-        ingredients.append({"name": name, "amount": amount, "unit": unit})
-
-    return ingredients
-
-
-def input_steps():
-    print("\nSchritte eingeben (je Zeile ein Schritt). Leere Eingabe beendet.")
-    steps = []
-    i = 1
-    while True:
-        step = input(f"Schritt {i}: ").strip()
-        if step == "":
-            break
-        steps.append(step)
-        i += 1
-    return steps
-
-
-def input_recipe():
-    title = input("Rezept-Titel: ").strip()
-    if not title:
-        print("Titel darf nicht leer sein.")
-        return None
-
-    ingredients = input_ingredients()
-    steps = input_steps()
-
-    return {"title": title, "ingredients": ingredients, "steps": steps}
+# def list_recipes(recipes):
+#     print("\n-- Rezeptliste --")
+#     if not recipes:
+#         print("Keine Rezepte vorhanden")
+#         return
+#     for i, r in enumerate(recipes, start=1):
+#         name = r.get("title") or r.get("recipe_name") or "Unbekanntes Rezept"
+#         print(f"{i} - {name}")
 

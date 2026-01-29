@@ -6,14 +6,6 @@ from typing import List, Dict
 # weitere Hilfsfunktionen
 
 
-def create_new_recipe():  
-    pass
-
-
-def search_by_ingredient():  
-    pass
-
-
 def adjust_portions():  
     pass
 
@@ -29,11 +21,10 @@ def create_grocery_list():
 
 import json
 import time
-from storage import load_recipes
 from typing import List, Dict 
 
 
-## Übergreifend (3.1, )
+## Übergreifend (3.1, 2.2, 2.3, )
 
 
 def read_int(promt: str) -> int:
@@ -254,10 +245,87 @@ def get_random_recipe(recipes: list[dict]):
 
 
 #  2
-## Spezifisch 2. ....
+## Spezifisch 2.1
 
 
+def create_new_recipe():  
+    pass
 
+
+# def choose_recipe_index(recipes):
+#     if not recipes:
+#         return None
+#     list_recipes(recipes)
+#     idx = read_int("Welche Nummer möchtest du ansehen? (0 = Abbrechen): ")
+#     if idx == 0:
+#         return None
+#     if idx < 1 or idx > len(recipes):
+#         print("Ungültige Nummer.")
+#         return None
+#     return idx - 1
+
+
+# def input_ingredients():
+#     print("\nZutaten eingeben im Format: Name;Menge;Einheit (z.B. Mehl;200;g)")
+#     print("Leere Eingabe beendet die Zutatenliste.")
+#     ingredients = []
+
+#     while True:
+#         line = input("Zutat: ").strip()
+#         if line == "":
+#             break
+
+#         parts = [p.strip() for p in line.split(";")]
+#         if len(parts) != 3:
+#             print("Ungültiges Format. Bitte genau: Name;Menge;Einheit")
+#             continue
+
+#         name, amount_str, unit = parts
+#         if not name or not unit:
+#             print("Name und Einheit dürfen nicht leer sein.")
+#             continue
+
+#         try:
+#             amount = float(amount_str.replace(",", "."))
+#         except ValueError:
+#             print("Menge muss eine Zahl sein.")
+#             continue
+
+#         ingredients.append({"name": name, "amount": amount, "unit": unit})
+
+#     return ingredients
+
+
+# def input_steps():
+#     print("\nSchritte eingeben (je Zeile ein Schritt). Leere Eingabe beendet.")
+#     steps = []
+#     i = 1
+#     while True:
+#         step = input(f"Schritt {i}: ").strip()
+#         if step == "":
+#             break
+#         steps.append(step)
+#         i += 1
+#     return steps
+
+
+# def input_recipe():
+#     title = input("Rezept-Titel: ").strip()
+#     if not title:
+#         print("Titel darf nicht leer sein.")
+#         return None
+
+#     ingredients = input_ingredients()
+#     steps = input_steps()
+
+#     return {"title": title, "ingredients": ingredients, "steps": steps}
+
+
+## Spezifisch 2.4
+
+
+def search_by_ingredient():  
+    pass
 
 
 #  3
