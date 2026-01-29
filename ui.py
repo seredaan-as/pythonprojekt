@@ -39,7 +39,7 @@ def find_recipe_flow(recipes):
     print("3) Ernährungsform – vegan / vegetarisch / pescetarisch / standard")
     print("4) Gerichtstyp (Vorspeise/Hauptspeise/Nachspeise)")
     print("5) Zufallsrezept")
-    print("6) Zurück zum Hauptmenü")
+    print("0) Zurück zum Hauptmenü")
 
     choice = read_int("Wähle eine Option aus: ")
 
@@ -57,15 +57,59 @@ def find_recipe_flow(recipes):
 
         if selected is None: 
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept ist erschienen. Versuche eine andere Zauberformel (äh… Auswahl).")
+    
     elif choice == 2:
-        filter_by_complexity()
+        print("Welche Komplexität wünschst du dir heute?")
+        print("1) leicht")
+        print("2) mittel")
+        print("3) anspruchsvoll")
+        sub_choice = read_int("Wähle eine Option aus: ")
+
+        complexity_map = {1: "leicht", 2: "mittel", 3: "anspruchsvoll"}
+        complexity = complexity_map.get(sub_choice)
+
+        if complexity is None:
+            print("Die Küchenelfen verstehen diese Wahl der Schwierigkeit nicht.")
+            return
+
+        filtered = filter_by_complexity(recipes, complexity)
+        selected = select_recipe_from_list(filtered)
+
+        if selected is not None:
+            chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
+            print(f"\nDu hast gewählt: {chosen_name}")
+            show_recipe_details(selected)
+        else:
+            print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Komplexität ist erschienen.")
     elif choice == 3:
-        filter_by_diet()
+        print("Welche Ernährungsform suchst du?")
+        print("1) vegan")
+        print("2) vegetarisch")
+        print("3) pescetarisch")
+        print("4) standard")
+        sub_choice = read_int("Wähle eine Option aus: ")
+
+        diet_map = {1: "vegan", 2: "vegetarisch", 3: "pescetarisch", 4: "standard"}
+        diet = diet_map.get(sub_choice)
+
+        if diet is None:
+            print("Die Küchenelfen verstehen diese Ernährungsform nicht.")
+            return
+
+        filtered = filter_by_diet(recipes, diet)
+        selected = select_recipe_from_list(filtered)
+
+        if selected is not None:
+            chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
+            print(f"\nDu hast gewählt: {chosen_name}")
+            show_recipe_details(selected)
+        else:
+            print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Ernährungsform ist erschienen.")
     elif choice == 4:
         filter_by_course()
     elif choice == 5:
         get_random_recipe(recipes)
-    elif choice == 6:
+    elif choice == 0:
         print("Hauptmenü wird geladen...")
         time.sleep(2)
         return                   # Zurück ins Hauptmenü - show_main_menu Ebene

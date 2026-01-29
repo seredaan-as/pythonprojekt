@@ -6,14 +6,6 @@ from typing import List, Dict
 # weitere Hilfsfunktionen
 
 
-def filter_by_complexity():  
-    pass
-
-
-def filter_by_diet():  
-    pass
-
-
 def filter_by_course():  
     pass
 
@@ -41,9 +33,6 @@ def create_grocery_list():
 
 
 
-
-
-
 # ______________ ab hier fertige Funktionen ____________________________________
 
 import json
@@ -63,21 +52,6 @@ def read_int(promt: str) -> int:
             return int(value)
         except ValueError:
             print("Bitte eine Zahl eingeben – die Magie erledigt den Rest.")
-
-def filter_by_time(recipes: list[dict], max_minutes: int) -> list[dict]:
-    """Filter recipes by maximum requiered cooking time.
-    Covers error if cooking_time is not in JSON by skipping the recipe"""  
-    result: list[dict] = []
-
-    for recipe in recipes: 
-        if "cooking_time" in recipe:
-            try:
-                if int(recipe["cooking_time"]) <= max_minutes:
-                    result.append(recipe)
-            except ValueError:
-                pass
-
-    return result
 
 
 def select_recipe_from_list(recipes: list[dict]):
@@ -106,7 +80,7 @@ def select_recipe_from_list(recipes: list[dict]):
 
 def show_recipe_details (recipe:dict):
     """Displays full recipe details"""
-    print("\n📜 Rezeptrolle wird entrollt...\n")
+    print("\n Rezeptrolle wird entrollt...\n")
     print(f"Rezept: {recipe['recipe_name']}")
     if recipe.get("hp_story"):
         print("Erstmal etwas Zauberhaftes zu diesem Rezept aus dem Magie-Universum:")
@@ -227,6 +201,67 @@ def adjust_portions(recipe: dict, target_servings: int) -> dict:
     return adjusted_recipe           
 
 
+#  1
+## Spezifisch: 1.1 Filtern nach Zeit
+
+
+def filter_by_time(recipes: list[dict], max_minutes: int) -> list[dict]:
+    result: list[dict] = []
+
+    for recipe in recipes: 
+        if "cooking_time" in recipe:
+            try:
+                if int(recipe["cooking_time"]) <= max_minutes:
+                    result.append(recipe)
+            except ValueError:
+                pass
+
+    return result
+
+
+## Spezifisch: 1.2 Filtern nach Schwierigkeit
+
+
+def filter_by_complexity(recipes: list[dict], complexity: str) -> list[dict]:
+    """Filtert Rezepte nach Schwierigkeitsgrad (leicht / mittel / anspruchsvoll)."""
+    if not recipes or not complexity:
+        return []
+
+    complexity_lower = complexity.strip().lower()
+    result: list[dict] = []
+
+    for recipe in recipes:
+        recipe_complexity = str(recipe.get("recipe_complexity", "")).strip().lower()
+        if recipe_complexity == complexity_lower:
+            result.append(recipe)
+
+    return result
+
+
+## Spezifisch: 1.3 Filtern nach Ernährungsform
+
+
+def filter_by_diet(recipes: list[dict], diet: str) -> list[dict]:
+    """Filtert Rezepte nach Ernährungsform (z.B. vegan / vegetarisch / pescetarisch / standard)."""
+    if not recipes or not diet:
+        return []
+
+    diet_lower = diet.strip().lower()
+    result: list[dict] = []
+
+    for recipe in recipes:
+        recipe_diet = str(recipe.get("diet_type", "")).strip().lower()
+        if recipe_diet == diet_lower:
+            result.append(recipe)
+
+    return result
+
+
+#  2
+## Spezifisch 2. ....
+
+
+#  3
 ## Spezifisch: 3.1 Filtern nach Charakter
 
 
@@ -234,16 +269,16 @@ def filter_by_character(recipes: list[dict], character: str) -> list[dict]:
     """Filtert Rezepte nach einem Harry-Potter-Charakter."""
     if not recipes or not character:
         return []
-    
+
     filtered = []
     character_lower = character.lower()
-    
+
     for recipe in recipes:
         characters = recipe.get('character', [])
         # Prüfen, ob der gesuchte Charakter in der Liste vorkommt (case-insensitive)
         if any(char.lower() == character_lower for char in characters):
             filtered.append(recipe)
-    
+
     return filtered
 
 

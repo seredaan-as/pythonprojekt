@@ -20,7 +20,7 @@ def main():
         elif choice == 2:            
             recipes = handle_manage_recipes_flow(recipes)   # Auswahl 2: Rezepte verwalten
         elif choice == 3:
-            handle_character_flow(recipes)                   # Auswahl 3: Rezepte nach Charakter wählen
+            handle_character_flow(recipes)                  # Auswahl 3: Rezepte nach Charakter wählen
         elif choice == 4:
             print("Die Magie ruht nicht. Komm zurück, wann immer dir danach ist.")                      # Programm beenden
             break
