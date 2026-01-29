@@ -10,10 +10,6 @@ def filter_by_course():
     pass
 
 
-def get_random_recipe():  
-    pass
-
-
 def create_new_recipe():  
     pass
 
@@ -106,14 +102,6 @@ def show_recipe_details (recipe:dict):
     print("\nViel Spaß beim Kochen!")
 
 
-def find_recipe_flow(recipes):
-    recipe = get_random_recipe(recipes)
-    if recipe:
-        print(f"Heutiger Vorschlag: {recipe['title']}")
-    else:
-        print("Leider kein Rezept gefunden (keine Rezepte geladen).")
-
-
 def show_recipe_flow(recipes):
     from ui import choose_recipe_index, show_recipe_details
     idx = choose_recipe_index(recipes)
@@ -146,11 +134,6 @@ def add_recipe_flow(recipes):
     print("Rezept gespeichert.")
     return recipes
 
-
-def get_random_recipe(recipies):
-    if not recipies:
-        return None
-    return random.choice(recipies)
 
     #--------------- Menü als Schleife, um andere Auswahl abzufangen -----------------
     while True:
@@ -255,6 +238,16 @@ def filter_by_diet(recipes: list[dict], diet: str) -> list[dict]:
             result.append(recipe)
 
     return result
+
+
+## Spezifisch: 1.5 Rezept zufällig auswählen
+
+
+def get_random_recipe(recipes: list[dict]):
+    """Gibt ein zufälliges Rezept aus der Liste zurück (oder None, wenn leer)."""
+    if not recipes:
+        return None
+    return random.choice(recipes)
 
 
 #  2

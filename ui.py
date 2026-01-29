@@ -108,7 +108,23 @@ def find_recipe_flow(recipes):
     elif choice == 4:
         filter_by_course()
     elif choice == 5:
-        get_random_recipe(recipes)
+        if not recipes:
+            print("Leider kein Rezept gefunden (keine Rezepte geladen).")
+            return
+
+        while True:
+            random_recipe = get_random_recipe(recipes)
+            if not random_recipe:
+                print("Leider kein Rezept gefunden (keine Rezepte geladen).")
+                break
+
+            chosen_name = random_recipe.get("recipe_name") or random_recipe.get("title") or "Unbekanntes Rezept"
+            print(f"\nHeutiger Vorschlag: {chosen_name}")
+            show_recipe_details(random_recipe)
+
+            again = input("\nGefällt dir dieses Rezept nicht? Neues Zufallsrezept anzeigen? (j/n): ").strip().lower()
+            if again not in ("j", "ja", "y", "yes"):
+                break
     elif choice == 0:
         print("Hauptmenü wird geladen...")
         time.sleep(2)
