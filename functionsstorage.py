@@ -8,18 +8,32 @@ from typing import List, Dict
 
 def filter_by_complexity():  
     pass
+
+
 def filter_by_diet():  
     pass
+
+
 def filter_by_course():  
     pass
+
+
 def get_random_recipe():  
     pass
+
+
 def create_new_recipe():  
     pass
+
+
 def search_by_ingredient():  
     pass
+
+
 def adjust_portions():  
     pass
+
+
 def create_grocery_list():
     pass
 
@@ -36,6 +50,9 @@ import json
 import time
 from storage import load_recipes
 from typing import List, Dict 
+
+
+## Übergreifend (3.1, )
 
 
 def read_int(promt: str) -> int:
@@ -113,16 +130,6 @@ def show_recipe_details (recipe:dict):
             print(f" {step}")
 
     print("\nViel Spaß beim Kochen!")
-
-
-# def handle_charakter_flow(recipes):
-#     print ("\n Charakter Menü")
-#     ToDo LES: Charakter menü anlegen
-
-
-# def handle_manage_recipies_flow(recipes):
-#     print("\n Rezepte verwalten")
-#     ToDo LES: Rezepte verwalten menü anlegen
 
 
 def find_recipe_flow(recipes):
@@ -218,6 +225,9 @@ def adjust_portions(recipe: dict, target_servings: int) -> dict:
     
     print(f"Rezept wurde von {original_servings} auf {target_servings} Portionen angepasst (Faktor: {factor:.2f}).")
     return adjusted_recipe           
+
+
+## Spezifisch: 3.1 Filtern nach Charakter
 
 
 def filter_by_character(recipes: list[dict], character: str) -> list[dict]:

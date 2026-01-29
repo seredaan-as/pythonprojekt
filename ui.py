@@ -3,6 +3,10 @@ from functionsstorage import read_int, filter_by_time, filter_by_complexity, fil
 from storage import load_recipes, save_recipes
 import time
 
+
+## Hauptmenü ###############################################
+
+
 def greet_user():
     print("=== Harry Potter Kochbuch ===")
     print("Willkommen, Reisender. Du hast das Harry-Potter-Kochbuch betreten.")
@@ -11,7 +15,19 @@ def greet_user():
     print(f"Schön, dich kennenzulernen, {user_name}! Heute begleite ich dich durch die magische Küche.")
 
 
-    
+def show_main_menu(): 
+    print("Was möchtest du tun? Wähle bitte 1, 2, 3 oder 4.")
+    print("1) Rezept zum Kochen finden")
+    print("2) Rezepte verwalten (hinzufügen, anzeigen, speichern, laden)")
+    print("3) Rezepte nach Harry-Potter-Charakteren entdecken")
+    print("4) Beenden")
+    choice = read_int("Auswahl: ")
+    return choice
+
+
+## Auswahl 1: Rezepte zum Kochbuch finden ##############
+
+
 def find_recipe_flow(recipes):
     
     recipes = load_recipes()
@@ -55,6 +71,9 @@ def find_recipe_flow(recipes):
         return                   # Zurück ins Hauptmenü - show_main_menu Ebene
     else:
         print("Die Küchenelfen schauen ratlos – diese Wahl kennen sie nicht. Probier eine andere.")
+
+
+## Auswahl 2: Rezepte verwalten #######
 
 
 def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
@@ -116,21 +135,53 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
     return recipes
 
 
-def find_hp_character_flow():
-    pass
+## Auswahl 3: Rezepte nach Charakter wählen #####################
+
+    
+def handle_character_flow(recipes: list[dict]) -> None:
+    """Flow B: Rezepte nach Harry-Potter-Charakteren durchsuchen."""
+    print("\n" + "=" * 60)
+    print("Rezepte nach Harry-Potter-Charakteren entdecken")
+    print("=" * 60)
+
+    # Charaktere aus allen Rezepten sammeln
+    all_characters = sorted({char for recipe in recipes for char in recipe.get('character', [])})
+    if not all_characters:
+        print("Keine Charaktere in den Rezepten gefunden.")
+        return
+
+    # Alle gefundenen Charaktere auflisten
+    print("\nVerfügbare Charaktere:")
+    for i, char in enumerate(all_characters, 1):
+        print(f"{i}) {char}")
+    print("0) Zurück")
+
+    # Nutzer wählt dass er zurück möchte
+    choice = read_int("\nWähle einen Charakter: ")
+    if choice == 0:
+        return
+    
+    # Nutzer wählt einen Charakter und erhält das Rezept
+    if 1 <= choice <= len(all_characters):
+        selected_character = all_characters[choice - 1]
+        filtered = filter_by_character(recipes, selected_character)
+        if filtered:
+            print(f"\nRezepte für {selected_character}:")
+            selected_recipe = select_recipe_from_list(filtered)
+            if selected_recipe:
+                show_recipe_details(selected_recipe)
+        else:
+            print(f"Keine Rezepte für {selected_character} gefunden.")
+    else:
+        print("Ungültige Auswahl.")
+ 
+
+## ToDo! Ohne Sortierung #########################################
+
 
 def adjust_recipes_flow():
     pass
 
-
-def show_main_menu(): 
-    print("Was möchtest du tun? Wähle bitte 1, 2, 3 oder 4.")
-    print("1) Rezept zum Kochen finden")
-    print("2) Rezepte nach Harry-Potter-Charakteren entdecken")
-    print("3) Rezepte verwalten (hinzufügen, anzeigen, speichern, laden)")
-    print("4) Beenden")
-    choice = read_int("Auswahl: ")
-    return choice
     
 
 def list_recipes(recipes):
@@ -255,39 +306,4 @@ def input_recipe():
     steps = input_steps()
 
     return {"title": title, "ingredients": ingredients, "steps": steps}
-
-
-def handle_character_flow(recipes: list[dict]) -> None:
-    """Flow B: Rezepte nach Harry-Potter-Charakteren durchsuchen."""
-    print("\n" + "=" * 60)
-    print("Rezepte nach Harry-Potter-Charakteren entdecken")
-    print("=" * 60)
-
-    # Charaktere aus allen Rezepten sammeln
-    all_characters = sorted({char for recipe in recipes for char in recipe.get('character', [])})
-    if not all_characters:
-        print("Keine Charaktere in den Rezepten gefunden.")
-        return
-
-    print("\nVerfügbare Charaktere:")
-    for i, char in enumerate(all_characters, 1):
-        print(f"{i}) {char}")
-    print("0) Zurück")
-
-    choice = read_int("\nWähle einen Charakter: ")
-    if choice == 0:
-        return
-    if 1 <= choice <= len(all_characters):
-        selected_character = all_characters[choice - 1]
-        filtered = filter_by_character(recipes, selected_character)
-        if filtered:
-            print(f"\nRezepte für {selected_character}:")
-            selected_recipe = select_recipe_from_list(filtered)
-            if selected_recipe:
-                show_recipe_details(selected_recipe)
-        else:
-            print(f"Keine Rezepte für {selected_character} gefunden.")
-    else:
-        print("Ungültige Auswahl.")
-
 
