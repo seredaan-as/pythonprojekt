@@ -278,19 +278,3 @@ def show_recipe_details(recipe):
     for i, step in enumerate(recipe.get("steps", []), start=1):
         print(f"{i}. {step}")
 
-## ToDo! Ohne Sortierung #########################################
-
-
-# def adjust_recipes_flow():
-#     pass
-
-    
-# def list_recipes(recipes):
-#     print("\n-- Rezeptliste --")
-#     if not recipes:
-#         print("Keine Rezepte vorhanden")
-#         return
-#     for i, r in enumerate(recipes, start=1):
-#         name = r.get("title") or r.get("recipe_name") or "Unbekanntes Rezept"
-#         print(f"{i} - {name}")
-
