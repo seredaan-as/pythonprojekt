@@ -236,6 +236,50 @@ def handle_character_flow(recipes: list[dict]) -> None:
         print("Ungültige Auswahl.")
  
 
+## Übergreifend genutzt
+
+
+def select_recipe_from_list(recipes: list[dict]) -> dict:
+    """Zeigt eine Liste von Rezepten und lässt den User eines auswählen."""
+    if not recipes:
+        print("Keine Rezepte gefunden.")
+        return None
+
+    print("\n" + "=" * 60)
+    print("Gefundene Rezepte:\n" + "=" * 60)
+    for i, recipe in enumerate(recipes, 1):
+        name = recipe.get('recipe_name') or recipe.get("title") or 'Unbekanntes Rezept'
+        t = recipe.get('cooking_time', '?')
+        complexity = recipe.get('recipe_complexity', '?')
+        print(f"{i}) {name} ({t} Min, {complexity})")
+    print("0) Zurück")
+
+    choice = read_int("\nWähle ein Rezept aus (Nummer): ")
+    if choice == 0:
+        return None
+    if 1 <= choice <= len(recipes):
+        return recipes[choice - 1]
+    print("Ungültige Auswahl.")
+    return None
+
+
+def show_recipe_details(recipe):
+    title = recipe.get("title") or recipe.get("recipe_name") or "Unbekanntes Rezept"
+    print(f"\n=== {title} ===")
+
+    print("\nZutaten:")
+    for z in recipe.get("ingredients", []):
+        # Erwartetes Format: {"name": "...", "amount": ..., "unit": "..."}
+        name = z.get("name") or z.get("ingredient") or ""
+        amount = z.get("amount", "")
+        unit = z.get("unit", "")
+        if name:
+            print(f"- {name}: {amount} {unit}".rstrip())
+
+    print("\nSchritte:")
+    for i, step in enumerate(recipe.get("steps", []), start=1):
+        print(f"{i}. {step}")
+
 ## ToDo! Ohne Sortierung #########################################
 
 
@@ -264,48 +308,6 @@ def choose_recipe_index(recipes):
         print("Ungültige Nummer.")
         return None
     return idx - 1
-
-
-def show_recipe_details(recipe):
-    title = recipe.get("title") or recipe.get("recipe_name") or "Unbekanntes Rezept"
-    print(f"\n=== {title} ===")
-
-    print("\nZutaten:")
-    for z in recipe.get("ingredients", []):
-        # Erwartetes Format: {"name": "...", "amount": ..., "unit": "..."}
-        name = z.get("name") or z.get("ingredient") or ""
-        amount = z.get("amount", "")
-        unit = z.get("unit", "")
-        if name:
-            print(f"- {name}: {amount} {unit}".rstrip())
-
-    print("\nSchritte:")
-    for i, step in enumerate(recipe.get("steps", []), start=1):
-        print(f"{i}. {step}")
-
-
-def select_recipe_from_list(recipes: list[dict]) -> dict:
-    """Zeigt eine Liste von Rezepten und lässt den User eines auswählen."""
-    if not recipes:
-        print("Keine Rezepte gefunden.")
-        return None
-
-    print("\n" + "=" * 60)
-    print("Gefundene Rezepte:\n" + "=" * 60)
-    for i, recipe in enumerate(recipes, 1):
-        name = recipe.get('recipe_name') or recipe.get("title") or 'Unbekanntes Rezept'
-        t = recipe.get('cooking_time', '?')
-        complexity = recipe.get('recipe_complexity', '?')
-        print(f"{i}) {name} ({t} Min, {complexity})")
-    print("0) Zurück")
-
-    choice = read_int("\nWähle ein Rezept aus (Nummer): ")
-    if choice == 0:
-        return None
-    if 1 <= choice <= len(recipes):
-        return recipes[choice - 1]
-    print("Ungültige Auswahl.")
-    return None
 
 
 def input_ingredients():
