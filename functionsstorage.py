@@ -324,8 +324,18 @@ def create_new_recipe():
 ## Spezifisch 2.4
 
 
-def search_by_ingredient():  
-    pass
+def search_by_ingredient(recipes: list[dict], ingredient: str) -> list[dict]:
+    if not recipes or not ingredient:
+        return []
+    q = ingredient.strip().lower()
+    out = []
+    for r in recipes:
+        for ing in r.get("ingredients", []):
+            name = str(ing.get("name") or ing.get("ingredient") or "").lower()
+            if q in name:
+                out.append(r)
+                break
+    return out
 
 
 #  3
