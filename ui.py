@@ -1,5 +1,5 @@
 # Menüs + Anzeige Funktionen
-from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient, show_recipe_details
+from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient, show_recipe_details, mini_menu, create_grocery_list
 from storage import load_recipes, save_recipes
 import time
 
@@ -35,9 +35,9 @@ def find_recipe_flow(recipes):
     print("Dieses Harry-Potter-Kochbuch ist ein interaktives Abenteuer, und ich begleite dich auf deiner kulinarischen Reise.")
     print("Was ist dir heute wichtig: Zeit, Schwierigkeit, Ernährungsweise oder bist du noch unentschlossen?")
     print("1) Zeit – ich habe wenig Zeit")
-    print("2) Komplexität – leicht / mittel / anspruchsvoll")
+    print("2) Komplexität – einfach / mittel / anspruchsvoll")
     print("3) Ernährungsform – vegan / vegetarisch / pescetarisch / standard")
-    print("4) Gerichtstyp (Vorspeise/Hauptspeise/Nachspeise)")
+    print("4) Gerichtstyp - Vorspeise / Hauptgericht / Nachtisch")
     print("5) Zufallsrezept")
     print("0) Zurück zum Hauptmenü")
 
@@ -82,6 +82,7 @@ def find_recipe_flow(recipes):
             show_recipe_details(selected)
         else:
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Komplexität ist erschienen.")
+
     elif choice == 3:
         print("Welche Ernährungsform suchst du?")
         print("1) vegan")
@@ -106,8 +107,34 @@ def find_recipe_flow(recipes):
             show_recipe_details(selected)
         else:
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Ernährungsform ist erschienen.")
+
     elif choice == 4:
-        filter_by_course()
+        print("Nach welcher Art von Zaubergericht suchst du??")
+        print("1) Vorspeise")
+        print("2) Hauptgericht")
+        print("3) Nachtisch")
+        print("4) Zurück")
+        sub_choice = read_int("Wähle eine Option aus: ")
+
+        course_map = {1: "vorspeise", 2: "hauptgericht", 3: "nachtisch"}
+        course = course_map.get(sub_choice)
+
+        if course is None: 
+            print("Die Küchenelfen verstehen diese Zaubergerichtart nicht.")
+            return
+        
+        filtered = filter_by_course(recipes, course)
+        selected = select_recipe_from_list(filtered)
+        
+        if selected is not None: 
+            chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
+            print(f"\nDu hast gewählt: {chosen_name}")
+            show_recipe_details(selected)
+
+        if selected is None: 
+            print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept ist erschienen. Versuche eine andere Zauberformel (äh… Auswahl).")
+
+
     elif choice == 5:
         if not recipes:
             print("Leider kein Rezept gefunden (keine Rezepte geladen).")
