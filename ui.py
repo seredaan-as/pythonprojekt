@@ -1,5 +1,5 @@
 # Menüs + Anzeige Funktionen
-from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient, show_recipe_details, mini_menu, create_grocery_list
+from functionsstorage import read_int, filter_by_time, filter_by_complexity, filter_by_diet, filter_by_course, get_random_recipe, filter_by_character, create_new_recipe, search_by_ingredient, show_recipe_details, select_recipe_from_list, mini_menu, create_grocery_list
 from storage import load_recipes, save_recipes
 import time
 
@@ -265,44 +265,5 @@ def handle_character_flow(recipes: list[dict]) -> None:
 ## Übergreifend genutzt
 
 
-def select_recipe_from_list(recipes: list[dict]) -> dict:
-    """Zeigt eine Liste von Rezepten und lässt den User eines auswählen."""
-    if not recipes:
-        print("Keine Rezepte gefunden.")
-        return None
-
-    print("\n" + "=" * 60)
-    print("Gefundene Rezepte:\n" + "=" * 60)
-    for i, recipe in enumerate(recipes, 1):
-        name = recipe.get('recipe_name') or recipe.get("title") or 'Unbekanntes Rezept'
-        t = recipe.get('cooking_time', '?')
-        complexity = recipe.get('recipe_complexity', '?')
-        print(f"{i}) {name} ({t} Min, {complexity})")
-    print("0) Zurück")
-
-    choice = read_int("\nWähle ein Rezept aus (Nummer): ")
-    if choice == 0:
-        return None
-    if 1 <= choice <= len(recipes):
-        return recipes[choice - 1]
-    print("Ungültige Auswahl.")
-    return None
-
-
-def show_recipe_details(recipe):
-    title = recipe.get("title") or recipe.get("recipe_name") or "Unbekanntes Rezept"
-    print(f"\n=== {title} ===")
-
-    print("\nZutaten:")
-    for z in recipe.get("ingredients", []):
-        # Erwartetes Format: {"name": "...", "amount": ..., "unit": "..."}
-        name = z.get("name") or z.get("ingredient") or ""
-        amount = z.get("amount", "")
-        unit = z.get("unit", "")
-        if name:
-            print(f"- {name}: {amount} {unit}".rstrip())
-
-    print("\nSchritte:")
-    for i, step in enumerate(recipe.get("steps", []), start=1):
-        print(f"{i}. {step}")
+# `select_recipe_from_list` and `show_recipe_details` are provided by `functionsstorage`
 

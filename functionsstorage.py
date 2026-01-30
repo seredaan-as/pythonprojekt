@@ -86,11 +86,11 @@ def show_recipe_details (recipe:dict):
 
 
 def show_recipe_flow(recipes):
-    from ui import choose_recipe_index, show_recipe_details
-    idx = choose_recipe_index(recipes)
-    if idx is None:
+    # Wähle ein Rezept aus der Liste und zeige die Details an.
+    selected = select_recipe_from_list(recipes)
+    if selected is None:
         return
-    show_recipe_details(recipes[idx])
+    show_recipe_details(selected)
 
 
 def add_recipe_flow(recipes):
