@@ -423,7 +423,7 @@ def create_new_recipe() -> dict | None:
             if value == "":
                 return None
             try:
-                return float(value)
+                return float(value.replace(",", "."))
             except ValueError:
                 print("Die Küchenhelfen kennen diese Zahl nicht. (Enter für 'Keine Menge')")
 
@@ -445,11 +445,12 @@ def create_new_recipe() -> dict | None:
     print("Rezeptname '0' = Hinzufügen abbrechen\n")
 
     recipe_name = input("Rezeptname: ").strip()
+    while not recipe_name:                      # Wiederholung, solane der Rezeptname leer ist
+        recipe_name = choice_nonempty("Rezeptname: ")
+
     if recipe_name == "0":
         print("Der Vorgang wurde abgebrochen.")
-        return
-    while not recipe_name:                      # Wiederholung, solane der Rezeptname leer ist
-        recipe_name = input("Rezeptname: ").strip() 
+        return None
 
     #Kochzeit
     cooking_time = read_int("Kochzeit in Minuten: ")
@@ -480,7 +481,7 @@ def create_new_recipe() -> dict | None:
         bad = [c for c in character_parts if c.isdigit()]
         if bad:
             print("Die Küchenelfen bitten dich keine Zahlen als Charaktere einzugeben. Diese wurden ignoriert:", ", ".join(bad))
-        character = [c for c in character_parts if c.isdigit]
+        character = [c for c in character_parts if not c.isdigit()]
 
     # Zutaten
     print("\nZutaten eingeben (Enter bei Name = fertig):")
@@ -503,7 +504,7 @@ def create_new_recipe() -> dict | None:
         })
     if not ingredients:
         print("Die Küchenelfen schauen verwirrt - ohne Zutaten gibt es kein Rezept. Abgebrochen.")
-        return
+        return None
     
     # Zubereitung
     print("\nZubereitungsschritte (Enter = fertig):")
@@ -518,7 +519,7 @@ def create_new_recipe() -> dict | None:
         step_no += 1
     if not steps:
         print("Die Küchenelfen schauen verwirrt - ohne Schritte gibt es kein Rezept. Abgebrochen.")
-        return 
+        return None
     
     new_recipe = {
         "recipe_name": recipe_name,

@@ -195,8 +195,9 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
 
         if choice == 1:            
             new_recipe = create_new_recipe()
-            if new_recipe:
-                recipes.append(new_recipe)
+            if not new_recipe:
+                continue
+            recipes.append(new_recipe)
             show_recipe_details(new_recipe)
             mini_menu(new_recipe)
         elif choice == 2:
