@@ -44,11 +44,3 @@ def save_recipes(recipes: list[dict], filename: str = json_file) -> bool:
     except (OSError, TypeError) as e:
         print(f"Fehler beim Speichern der Rezepte: {e}")
         return False
-
-def create_shopping_list():
-    """(Platzhalter) Erstellt einen Einkaufszettel.
-
-    Returns:
-        None: Noch nicht implementiert.
-    """
-    pass
