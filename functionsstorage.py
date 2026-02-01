@@ -460,7 +460,7 @@ def create_new_recipe() -> dict | None:
     #Auswahlfelder nur mit erlaubten Optionen
     complexity_map = {1: "einfach", 2: "mittel", 3: "anspruchsvoll"}
     diet_map = {1: "vegan", 2: "vegetarisch", 3: "pescetarisch", 4: "standard"}
-    course_map = {1: "vorspeise", 2: "hauptgericht", 3: "nachtisch"}
+    course_map = {1: "Vorspeise", 2: "Hauptgericht", 3: "Nachtisch"}
 
 
     recipe_complexity = pick_from_menu("Schwierigkeitsgrad wählen:", complexity_map)
