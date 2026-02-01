@@ -137,30 +137,6 @@ def show_recipe_flow(recipes):
     show_recipe_details(selected)
 
 
-# def add_recipe_flow(recipes):
-#     print("\n Rezept anlegen")
-#    from ui import input_recipe
-#    new_recipe = input_recipe()
-#    if new_recipe is None:
-#        return recipes
-
-    # optional: Duplikate nach Titel verhindern/überschreiben
-#    for i, r in enumerate(recipes):
-#        if r.get("title") == new_recipe["title"]:
-#            choice = input("Rezept existiert schon. Überschreiben? (j/n): ").strip().lower()
-#            if choice in ("j", "ja", "y", "yes"):
-#                recipes[i] = new_recipe
-#                save_recipes(recipes)
-#                print("Rezept überschrieben & gespeichert.")
-#            else:
-#                print("Abgebrochen.")
-#            return recipes
-
-#    recipes.append(new_recipe)
-#    save_recipes(recipes)
-#    print("Rezept gespeichert.")
-#    return recipes
-
 def export_recipe(recipe: dict):
     """Speichert ein Rezept als txt-Datei, dabei ist der Dateiname = Rezeptname; gibt den Dateipfad zurück oder bei Fehler = None"""
 
@@ -558,75 +534,6 @@ def create_new_recipe() -> dict | None:
     
     print(f"\nRezept '{recipe_name}' wurde erstellt.\n")
     return new_recipe
-
-
-# def choose_recipe_index(recipes):
-#     if not recipes:
-#         return None
-#     list_recipes(recipes)
-#     idx = read_int("Welche Nummer möchtest du ansehen? (0 = Abbrechen): ")
-#     if idx == 0:
-#         return None
-#     if idx < 1 or idx > len(recipes):
-#         print("Ungültige Nummer.")
-#         return None
-#     return idx - 1
-
-
-# def input_ingredients():
-#     print("\nZutaten eingeben im Format: Name;Menge;Einheit (z.B. Mehl;200;g)")
-#     print("Leere Eingabe beendet die Zutatenliste.")
-#     ingredients = []
-
-#     while True:
-#         line = input("Zutat: ").strip()
-#         if line == "":
-#             break
-
-#         parts = [p.strip() for p in line.split(";")]
-#         if len(parts) != 3:
-#             print("Ungültiges Format. Bitte genau: Name;Menge;Einheit")
-#             continue
-
-#         name, amount_str, unit = parts
-#         if not name or not unit:
-#             print("Name und Einheit dürfen nicht leer sein.")
-#             continue
-
-#         try:
-#             amount = float(amount_str.replace(",", "."))
-#         except ValueError:
-#             print("Menge muss eine Zahl sein.")
-#             continue
-
-#         ingredients.append({"name": name, "amount": amount, "unit": unit})
-
-#     return ingredients
-
-
-# def input_steps():
-#     print("\nSchritte eingeben (je Zeile ein Schritt). Leere Eingabe beendet.")
-#     steps = []
-#     i = 1
-#     while True:
-#         step = input(f"Schritt {i}: ").strip()
-#         if step == "":
-#             break
-#         steps.append(step)
-#         i += 1
-#     return steps
-
-
-# def input_recipe():
-#     title = input("Rezept-Titel: ").strip()
-#     if not title:
-#         print("Titel darf nicht leer sein.")
-#         return None
-
-#     ingredients = input_ingredients()
-#     steps = input_steps()
-
-#     return {"title": title, "ingredients": ingredients, "steps": steps}
 
 
 ## Spezifisch 2.4
