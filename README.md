@@ -58,6 +58,23 @@ Falls der entsprechende Ordner nicht existiert, wird er automatisch erstellt.
 - Benutzerprofile
 
 ## Team
-Namen der beiden Bearbeiter
+Sternberg, Leif
+Sereda, Anastasiia
+
 ## Anforderungen
-Liste der Pflichten aus der Aufgabenstellung (abgehakt)
+Ein Programm zur Verwaltung von Rezepten inklusive Zutaten und Zubereitungsschritten.
+
+*Anforderungen:*
+	• Anlegen neuer Rezepte (+)
+	• Anzeige aller Rezepte (+)
+	• Anzeigen einzelner Rezepte (+)
+	• Speichern in und laden der Rezepte aus einer Datei (+)
+	• Hauptmenü mit mehreren Auswahlmöglichkeiten (+)
+	• Saubere Benutzerführung (Fehlermeldung bei falscher Eingabe) (+)
+*Erweiterungen:*
+	• suche nach Zutaten (+)
+	• Portionsanpassung (nach Anzahl Personen) (+)
+	• Kategorien (z.B. vegetarisch) (+)
+	• Einkaufslisten-Generator (→ Einkaufsliste ist separate, formatierte Textdatei) (+)
+	• Zufällige Rezeptauswahl (+)
+
