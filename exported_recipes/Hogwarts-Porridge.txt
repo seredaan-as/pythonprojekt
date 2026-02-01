@@ -1,0 +1,24 @@
+== REZEPTROLLE ==
+Rezept: Hogwarts-Porridge
+Zauberzettel erstellt am: 2026-02-01 13:30:59
+----------------------------------------
+Zeit: 10 Minuten
+Schwierigkeitsgrad: einfach
+Ernährungsform: vegetarisch
+Gerichtstyp: Hauptspeise
+Portionen: 2
+Relevante Harry Potter-Charaktere: Harry Potter, Ron Weasley, Hermine Granger
+----------------------------------------
+Zutaten:
+- 100 g Haferflocken
+- 500 ml Milch oder Wasser
+- Salz (Prise)
+- Honig oder Früchte (zum Servieren)
+
+Zubereitung:
+1) Haferflocken in einem Topf kurz anrösten.
+2) Mit Milch oder Wasser aufgießen, eine Prise Salz zugeben und aufkochen.
+3) Bei geringer Hitze unter Rühren köcheln, bis der Brei cremig ist.
+4) Nach Wunsch mit Honig oder frischen Früchten servieren.
+
+== Viel Spaß beim Kochen! ==

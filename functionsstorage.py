@@ -31,6 +31,32 @@ def read_int(promt: str) -> int:
         except ValueError:
             print("Bitte eine Zahl eingeben – die Magie erledigt den Rest.")
 
+# Menü für die Rezeptdetailansicht separat als Schleife, um falsche Auswahl abzufangen ----
+    
+def mini_menu(recipe:dict):
+    while True:
+        print("\nWas möchtest du als Nächstes tun?")
+        print("1) Portionen anpassen")
+        print("2) Einkaufszettel erstellen")
+        print("3) Rezept als txt.Datei speichern")
+        print("4) Zurück zum Hauptmenü")
+        choice = read_int("Sprich eine Zahl: ")
+
+        if choice == 1:
+            target_servings = read_int("Auf wie viele Portionen anpassen? ")
+            recipe = adjust_portions(recipe, target_servings)                   #Anmerkung: Damit wird das Rezept in dieser Laufzeit überschrieben, d.h. Einkaufszettel, weitere Anpassungen basieren auf dem neuen Rezept 
+            show_recipe_details(recipe)   
+        elif choice == 2:
+            create_grocery_list(recipe)
+        elif choice == 3:
+            export_recipe(recipe)
+        elif choice == 4:
+            print("Hauptmenü wird geladen...")
+            time.sleep(1)
+            return                                                              # Zurück ins Hauptmenü
+        else:
+            print("Die Küchenelfen schauen ratlos – diese Wahl kennen sie nicht. Probier eine andere.")
+
 
 def select_recipe_from_list(recipes: list[dict]):
     """Shows filtered recipes with index, 
@@ -58,31 +84,49 @@ def select_recipe_from_list(recipes: list[dict]):
 
 def show_recipe_details (recipe:dict):                          
     """Displays full recipe details"""
-    print("\n Rezeptrolle wird entrollt...\n")
+    print("\n -- Rezeptrolle wird entrollt... --\n")
+    print("=" * 40)
     print(f"Rezept: {recipe['recipe_name']}")
+    print("=" * 40)
     if recipe.get("hp_story"):
-        print("Erstmal etwas Zauberhaftes zu diesem Rezept aus dem Magie-Universum:")
-        print(f"\n{recipe['hp_story']}\n")
+        print(f"\n<{recipe['hp_story']}>\n")
     print(f"Zeit: {recipe['cooking_time']} Minuten")
     print(f"Schwierigkeitsgrad: {recipe['recipe_complexity']}")
     print(f"Ernährungsform: {recipe['diet_type']}")
     print(f"Gerichtstyp: {recipe['course_type']}")
     print(f"Zeit: {recipe['cooking_time']} Minuten")
+    print(f"Portionen: {recipe['servings']}")
     if recipe.get("ingredients"):
-        print("\n Zutaten:")
+        print("Zutaten:")
         for ing in recipe["ingredients"]:
-            amount = ing.get("amount", "")
-            unit = ing.get("unit", "")
-            name = ing.get("ingredient", "")
-            note = ing.get("note", "")
-            print(f" - {amount} {unit} {name}, {note}")
+            amount = ing.get("amount")
+            unit = ing.get("unit")
+            name = ing.get("ingredient")
+            note = ing.get("note")
+        
+            lines = []
+            if amount is not None:
+                lines.append(str(amount))
+
+            if unit is not None:
+                lines.append(str(unit))
+
+            if name is not None:
+                lines.append(str(name))
+    
+            ingredient_line = " ".join(lines).strip()
+
+            if note is not None:
+                ingredient_line += f", {note}"
+
+            print(f"- {ingredient_line}")
+
     if recipe.get("steps"):
         print("\nZubereitung:")
         for step in recipe["steps"]:
             print(f" {step}")
 
-    print("\nViel Spaß beim Kochen!")
-    mini_menu()
+    print("\n==Viel Spaß beim Kochen! ==\n")
 
 
 def show_recipe_flow(recipes):
@@ -93,82 +137,160 @@ def show_recipe_flow(recipes):
     show_recipe_details(selected)
 
 
-def add_recipe_flow(recipes):
-    print("\n Rezept anlegen")
-    from ui import input_recipe
-    new_recipe = input_recipe()
-    if new_recipe is None:
-        return recipes
+# def add_recipe_flow(recipes):
+#     print("\n Rezept anlegen")
+#    from ui import input_recipe
+#    new_recipe = input_recipe()
+#    if new_recipe is None:
+#        return recipes
 
     # optional: Duplikate nach Titel verhindern/überschreiben
-    for i, r in enumerate(recipes):
-        if r.get("title") == new_recipe["title"]:
-            choice = input("Rezept existiert schon. Überschreiben? (j/n): ").strip().lower()
-            if choice in ("j", "ja", "y", "yes"):
-                recipes[i] = new_recipe
-                save_recipes(recipes)
-                print("Rezept überschrieben & gespeichert.")
-            else:
-                print("Abgebrochen.")
-            return recipes
+#    for i, r in enumerate(recipes):
+#        if r.get("title") == new_recipe["title"]:
+#            choice = input("Rezept existiert schon. Überschreiben? (j/n): ").strip().lower()
+#            if choice in ("j", "ja", "y", "yes"):
+#                recipes[i] = new_recipe
+#                save_recipes(recipes)
+#                print("Rezept überschrieben & gespeichert.")
+#            else:
+#                print("Abgebrochen.")
+#            return recipes
 
-    recipes.append(new_recipe)
-    save_recipes(recipes)
-    print("Rezept gespeichert.")
-    return recipes
+#    recipes.append(new_recipe)
+#    save_recipes(recipes)
+#    print("Rezept gespeichert.")
+#    return recipes
 
-def create_grocery_list(recipes):
+def export_recipe(recipe: dict):
+    """Speichert ein Rezept als txt-Datei, dabei ist der Dateiname = Rezeptname; gibt den Dateipfad zurück oder bei Fehler = None"""
+
+    if not recipe:
+        print("Kein Rezept vorhanden.")
+        return 
+    
+    recipe_name = recipe.get("recipe_name", "Unbekanntes Rezept")
+    hp_story = recipe.get("hp_story")
+
+    lines = []
+
+    lines.append("== REZEPTROLLE ==")
+    lines.append(f"Rezept: {recipe_name}")
+    lines.append(f"Zauberzettel erstellt am: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append("-" * 40)
+
+    lines.append(f"Zeit: {recipe.get('cooking_time')} Minuten")
+    lines.append(f"Schwierigkeitsgrad: {recipe.get('recipe_complexity')}")
+    lines.append(f"Ernährungsform: {recipe.get('diet_type')}")
+    lines.append(f"Gerichtstyp: {recipe.get('course_type')}")
+    lines.append(f"Portionen: {recipe.get('servings')}")
+
+    characters = recipe.get("character", [])
+    if characters:
+        lines.append("Relevante Harry Potter-Charaktere: " + ", ".join(str(c) for c in characters))
+    
+    lines.append("-" * 40)
+
+    # Zutaten
+    lines.append("Zutaten:")
+    for ing in recipe.get("ingredients", []):
+        amount = ing.get("amount")
+        unit = ing.get("unit")
+        name = ing.get("ingredient")
+        note = ing.get("note")
+    
+        ingredients = []
+        if amount is not None:
+            ingredients.append(str(amount))
+        if unit:
+            ingredients.append(str(unit))
+        if name:
+            ingredients.append(str(name))
+
+        ingredient_line = " ".join(ingredients).strip()
+
+        if note:
+            ingredient_line += f" ({note})"
+
+        if ingredient_line:
+            lines.append(f"- {ingredient_line}")
+
+    # Zubereitung 
+    lines.append("")
+    lines.append("Zubereitung:")
+    for step in recipe.get("steps", []):
+        lines.append(str(step))
+
+    lines.append("")
+    lines.append("== Viel Spaß beim Kochen! ==")
+
+
+
+    # Dateiname sichern
+    safe_name = "".join(ch for ch in recipe_name if ch.isalnum() or ch in (" ", "_", "-")).strip()
+    if not safe_name:
+        safe_name = "Unbekanntes_Rezept"
+    # Ordner
+    folder = "exported_recipes"
+    os.makedirs(folder, exist_ok=True)
+
+    path = os.path.join(folder, f"{safe_name}.txt")
+
+    with open(path, "w", encoding="utf-8") as f:                                                        # Fehlerbehandlung: Die Datei wird nach der Ausführunf im with-Block automatisch geschlossen
+        f.writelines(line + "\n" for line in lines)
+
+    print(f"\nRezept wurde gespeichert: {path}\n")
+    return path
+
+    
+
+
+def create_grocery_list(recipe: dict):
     """Erstellt einen Einkaufszettel in Form einer Text-Datei für das in der Rezeptdetailansicht geöffnete Rezept; 
     gibt den Dateipfad als String zurück;
     Hilfsfuntion für mini_menu"""
     
-    ingredients = recipes.get("ingredients", [])
+    ingredients = recipe.get("ingredients", [])
     if not ingredients:
         print("Diese Rezeptrolle hat keine Zutaten gespeichert - kein Einkaufszettel möglich.") 
         return None
     
-    recipe_name = recipes.get("recipe_name", "Unbekanntes Rezept") 
+    recipe_name = recipe.get("recipe_name", "Unbekanntes Rezept") 
 
     lines = []
+
     lines.append("== EINKAUFSZETTEL ==")
     lines.append(f"Rezept: {recipe_name}")
-    lines.append(f"Zauberzettel erstellt am: {datetime.now().strtime("%Y-%m-%d %H:%M:%S")}")
+    lines.append(f"Zauberzettel erstellt am: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     lines.append("-" * 40)
 
     for ing in ingredients: 
-        amount = ing.get("amount", None)
-        unit = ing.get("unit", None)
-        name = ing.get("ingredient", None)
-        note = ing.get("note", None)
+        amount = ing.get("amount")
+        unit = ing.get("unit")
+        name = ing.get("ingredient")
+        note = ing.get("note")
+        ingr_part = []
 
-    lines = []
-    if amount is not None:
-        lines.append(str(amount))
+        if amount is not None:
+            ingr_part.append(str(amount))
 
-    if unit is not None:
-        lines.append(str(unit))
+        if unit:
+            ingr_part.append(str(unit))
 
-    if name is not None:
-        lines.append(str(name))
+        if name:
+            ingr_part.append(str(name))
     
-    ingredient_line = " ".join(lines).strip()
+        ingredient_line = " ".join(ingr_part).strip()
 
-    if note is not None:
-        ingredient_line += f", {note}"
+        if note:
+            ingredient_line += f" ({note})"
 
-    if ingredient_line:
-        lines.append(f"- {ingredient_line}")
+        if ingredient_line:
+            lines.append(f"- {ingredient_line}")
 
-    lines.append("-" + 40)
+    lines.append("-" * 40)
     lines.append("== Viel Spaß beim Kochen! ==")
 
-    lines = [str(s) + "\n" for s in ingredient_line]
-
-    recipe_file = open(f"{recipe_name}.txt", "w")
-    recipe_file.writelines(lines)
-    recipe_file.close()
-
-    # Dateiname
+    # Dateiname sichern
     safe_name = "".join(ch for ch in recipe_name if ch.isalnum() or ch in (" ", "_", "-")).strip()      #schaut, ob char = Buchstabe/Zahl ist, also keine Sonderzeichen und speichert Dateiname
     file_name = f"einkaufszettel_{safe_name}.txt"
     #Ordner
@@ -177,32 +299,11 @@ def create_grocery_list(recipes):
     path = os.path.join(folder, file_name)                                                              #um verschiedene Pfadarten von Betriebsystemen darzustellen 
 
     with open(path, "w", encoding="utf-8") as f:                                                        # Fehlerbehandlung: Die Datei wird nach der Ausführunf im with-Block automatisch geschlossen
-        f.writelines(lines)
+        f.writelines(line + "\n" for line in lines)
 
     print(f"\nEinkaufszettel wurde erstellt: {path}\n")
     return path
 
-# Menü für die Rezeptdetailansicht separat als Schleife, um falsche Auswahl abzufangen ----
-    
-def mini_menu(recipe:dict):
-    while True:
-        print("\nWas möchtest du als Nächstes tun?")
-        print("1) Portionen anpassen")
-        print("2) Einkaufszettel erstellen")
-        print("3) Zurück zum Hauptmenü")
-        choice = read_int("Sprich eine Zahl: ")
-
-        if choice == 1:
-            target_servings = read_int("Auf wie viele Portionen anpassen? ")
-            recipe = adjust_portions(recipe, target_servings)                   #Anmerkung: Damit wird das Rezept in dieser Laufzeit überschrieben, d.h. Einkaufszettel, weitere Anpassungen basieren auf dem neuen Rezept      
-        elif choice == 2:
-            create_grocery_list(recipe)    #noch anzupassen + funk anzulegen
-        elif choice == 3:
-            print("Hauptmenü wird geladen...")
-            time.sleep(1)
-            return                    # Zurück ins Hauptmenü
-        else:
-            print("Die Küchenelfen schauen ratlos – diese Wahl kennen sie nicht. Probier eine andere.")
             
 
 def adjust_portions(recipe: dict, target_servings: int) -> dict:
@@ -256,7 +357,7 @@ def filter_by_time(recipes: list[dict], max_minutes: int) -> list[dict]:
 
 
 def filter_by_complexity(recipes: list[dict], complexity: str) -> list[dict]:
-    """Filtert Rezepte nach Schwierigkeitsgrad (leicht / mittel / anspruchsvoll)."""
+    """Filtert Rezepte nach Schwierigkeitsgrad (einfach / mittel / anspruchsvoll)."""
     if not recipes or not complexity:
         return []
 
@@ -290,7 +391,7 @@ def filter_by_diet(recipes: list[dict], diet: str) -> list[dict]:
     return result
 
 
-## Spezifisch: 1.4 Filtern nach 
+## Spezifisch: 1.4 Filtern nach Gerichsttyp
 
 
 def filter_by_course(recipes: list[dict], course):  
@@ -323,8 +424,140 @@ def get_random_recipe(recipes: list[dict]):
 ## Spezifisch 2.1
 
 
-def create_new_recipe():  
-    pass
+def create_new_recipe() -> dict | None:
+    """Erstellt ein neues Rezept, gibt das Rezept als Dict zurück oder None bei Abbruch"""  
+    
+    # Must have promt
+    def choice_nonempty(text: str) -> str:              
+        while True: 
+            value = input(text).strip()
+            if value:
+                return value
+            print("Bitte nicht leer lassen.")
+
+    # optionaler promt
+    def choice_optional(text: str) -> str | None: 
+        value = input(text).strip()
+        return value if value else None
+    
+    # optionaler float promt
+    def choice_float_optional(text:str) -> float | None:
+        while True:
+            value = input(text).strip() 
+            if value == "":
+                return None
+            try:
+                return float(value)
+            except ValueError:
+                print("Die Küchenhelfen kennen diese Zahl nicht. (Enter für 'Keine Menge')")
+
+    #Falls Fehlerangabe
+    def pick_from_menu(title: str, options: dict[int, str]) -> str:
+        print(f"\n{title}")
+        for k, v in options.items():
+            print(f"{k}) {v}")
+        while True:
+            choice = read_int("Auswahl: ")
+            if choice in options:
+                return options[choice]
+            print("Ungültige Auswahl. Bitte eine der Zahlen aus dem Menü wählen.")
+        
+    
+    print("\n" + "=" * 40)
+    print("Neues Rezept hinzufügen")
+    print("\n" + "=" * 40)
+    print("Rezeptname '0' = Hinzufügen abbrechen\n")
+
+    recipe_name = input("Rezeptname: ").strip()
+    if recipe_name == "0":
+        print("Der Vorgang wurde abgebrochen.")
+        return
+    while not recipe_name:                      # Wiederholung, solane der Rezeptname leer ist
+        recipe_name = input("Rezeptname: ").strip() 
+
+    #Kochzeit
+    cooking_time = read_int("Kochzeit in Minuten: ")
+    while cooking_time <= 0:
+        cooking_time = read_int("Bitte gültige Kochzeit eingeben (>0 Minuten): ")
+
+    #Auswahlfelder nur mit erlaubten Optionen
+    complexity_map = {1: "einfach", 2: "mittel", 3: "anspruchsvoll"}
+    diet_map = {1: "vegan", 2: "vegetarisch", 3: "pescetarisch", 4: "standard"}
+    course_map = {1: "vorspeise", 2: "hauptgericht", 3: "nachtisch"}
+
+
+    recipe_complexity = pick_from_menu("Schwierigkeitsgrad wählen:", complexity_map)
+    diet_type = pick_from_menu("Ernährungsform wählen:", diet_map)
+    course_type = pick_from_menu("Gerichtstyp wählen:", course_map)
+
+    #Portionen
+    servings = read_int("Portionen: ")
+    while servings <= 0: 
+        servings = read_int("Bitte gültige Portionenanzahl eingeben (>0 Portionen): ")
+
+    # HP-Charaktere ()
+    hp_characters = choice_optional("Welche Harry Potter Charaktere werden mit dem Rezept assoziiert? Bitte Komma-getrennt eingeben oder Enter = für keine: ")
+    character: list[str] = []
+    if hp_characters:
+        character_parts = [c.strip() for c in hp_characters.split(",") if c.strip()]              #erezeugt eine Liste aus c, wenn das Ergebnis nicht leer ist
+        character_parts = [c for c in character_parts if c]                                                 # leere Einträge in der Liste raus
+        bad = [c for c in character_parts if c.isdigit()]
+        if bad:
+            print("Die Küchenelfen bitten dich keine Zahlen als Charaktere einzugeben. Diese wurden ignoriert:", ", ".join(bad))
+        character = [c for c in character_parts if c.isdigit]
+
+    # Zutaten
+    print("\nZutaten eingeben (Enter bei Name = fertig):")
+    ingredients: list[dict] = []
+
+    while True: 
+        ing_name = input("Zutat: ").strip()
+        if ing_name == "":
+            break
+
+        amount = choice_float_optional("  Menge (z.B. 1 oder 0.5): ")
+        unit = choice_optional("  Einheit (g, ml, etc.): ")
+        note = choice_optional("  Notiz (z.B. Prise, zum Servieren): ")
+
+        ingredients.append({
+            "ingredient": ing_name,
+            "amount": amount,
+            "unit": unit,
+            "note": note
+        })
+    if not ingredients:
+        print("Die Küchenelfen schauen verwirrt - ohne Zutaten gibt es kein Rezept. Abgebrochen.")
+        return
+    
+    # Zubereitung
+    print("\nZubereitungsschritte (Enter = fertig):")
+    steps: list[str] = []
+    step_no = 1
+
+    while True: 
+        step = input(f"{step_no}) Schritt: ").strip()
+        if step == "":
+            break
+        steps.append(f"{step_no}) {step}")
+        step_no += 1
+    if not steps:
+        print("Die Küchenelfen schauen verwirrt - ohne Schritte gibt es kein Rezept. Abgebrochen.")
+        return 
+    
+    new_recipe = {
+        "recipe_name": recipe_name,
+        "cooking_time": cooking_time,
+        "recipe_complexity": recipe_complexity,
+        "diet_type": diet_type,
+        "course_type": course_type,
+        "character": character,
+        "servings": servings,
+        "ingredients": ingredients,
+        "steps": steps
+    }
+    
+    print(f"\nRezept '{recipe_name}' wurde erstellt.\n")
+    return new_recipe
 
 
 # def choose_recipe_index(recipes):

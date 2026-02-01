@@ -25,12 +25,13 @@ def show_main_menu():
     return choice
 
 
-## Auswahl 1: Rezepte zum Kochbuch finden ##############
+## Auswahl 1: Rezepte zum Kochbuch finden ##############################################################################
 
 
 def find_recipe_flow(recipes):
     
-    recipes = load_recipes()
+    if not recipes:
+        recipes = load_recipes()
 
     print("Dieses Harry-Potter-Kochbuch ist ein interaktives Abenteuer, und ich begleite dich auf deiner kulinarischen Reise.")
     print("Was ist dir heute wichtig: Zeit, Schwierigkeit, Ernährungsweise oder bist du noch unentschlossen?")
@@ -54,19 +55,20 @@ def find_recipe_flow(recipes):
             chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
             print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
-
+            mini_menu(selected)
+            return
 
         if selected is None: 
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept ist erschienen. Versuche eine andere Zauberformel (äh… Auswahl).")
     
     elif choice == 2:
         print("Welchen Schwierigkeitsgrad soll dein Rezeptzauber haben?")
-        print("1) leicht")
+        print("1) einfach")
         print("2) mittel")
         print("3) anspruchsvoll")
         sub_choice = read_int("Wähle eine Option aus: ")
 
-        complexity_map = {1: "leicht", 2: "mittel", 3: "anspruchsvoll"}
+        complexity_map = {1: "einfach", 2: "mittel", 3: "anspruchsvoll"}
         complexity = complexity_map.get(sub_choice)
 
         if complexity is None:
@@ -80,6 +82,8 @@ def find_recipe_flow(recipes):
             chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
             print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
+            mini_menu(selected)
+            return
         else:
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Komplexität ist erschienen.")
 
@@ -105,6 +109,8 @@ def find_recipe_flow(recipes):
             chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
             print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
+            mini_menu(selected)
+            return
         else:
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept mit dieser Ernährungsform ist erschienen.")
 
@@ -130,6 +136,8 @@ def find_recipe_flow(recipes):
             chosen_name = selected.get("recipe_name") or selected.get("title") or "Unbekanntes Rezept"
             print(f"\nDu hast gewählt: {chosen_name}")
             show_recipe_details(selected)
+            mini_menu(selected)
+            return
 
         if selected is None: 
             print("Hm… die Küchenelfen haben in ihren Kesseln gerührt, aber kein Rezept ist erschienen. Versuche eine andere Zauberformel (äh… Auswahl).")
@@ -151,8 +159,11 @@ def find_recipe_flow(recipes):
             show_recipe_details(random_recipe)
 
             again = input("\nGefällt dir dieses Rezept nicht? Neues Zufallsrezept anzeigen? (j/n): ").strip().lower()
-            if again not in ("j", "ja", "y", "yes"):
-                break
+            if again in ("j", "ja", "y", "yes"):
+                continue                                    # nächstes Random-Rezept
+            else: 
+                mini_menu(random_recipe)                    # sonst: follow-up actions 
+                return                                      # zurück ins Hauptmenü 
     elif choice == 0:
         print("Hauptmenü wird geladen...")
         time.sleep(2)
@@ -161,7 +172,7 @@ def find_recipe_flow(recipes):
         print("Die Küchenelfen schauen ratlos – diese Wahl kennen sie nicht. Probier eine andere.")
 
 
-## Auswahl 2: Rezepte verwalten #######
+## Auswahl 2: Rezepte verwalten ##############################################################################################
 
 
 def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
@@ -178,7 +189,6 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
             "3) Einzelnes Rezept anzeigen\n"
             "4) Nach Zutaten suchen\n"
             "5) Rezepte speichern\n"
-            "6) Rezepte laden\n"
             "0) Zurück zum Hauptmenü"
         )
         choice = read_int("Auswahl: ")
@@ -187,11 +197,17 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
             new_recipe = create_new_recipe()
             if new_recipe:
                 recipes.append(new_recipe)
-                print("Rezept wurde hinzugefügt!")
+            show_recipe_details(new_recipe)
+            mini_menu(new_recipe)
         elif choice == 2:
-            selected = select_recipe_from_list(recipes)
-            if selected:
-                show_recipe_details(selected)
+            if not recipes:
+                print("Keine Rezepte vorhanden.")
+            else:
+                print("\nDie Küchenelfen rollen alle Rezepte auf...")
+                time.sleep(1)
+                for index, recipe in enumerate(recipes, start=1):
+                    print(f"{index}) {recipe['recipe_name']} ({recipe['cooking_time']} Minuten)")
+                    
         elif choice == 3:
             recipe_name = input("Rezeptname eingeben: ").strip()
             found = next((r for r in recipes if r.get('recipe_name', '').lower() == recipe_name.lower()), None)
@@ -210,18 +226,15 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
                 print("Keine Rezepte mit dieser Zutat gefunden.")
         elif choice == 5:
             save_recipes(recipes)
-        elif choice == 6:
-            recipes = load_recipes()
-            print("Rezepte wurden geladen.")
         elif choice == 0:
-            break
+            print("Hauptmenü wird geladen...")
+            time.sleep(1)
+            return 
         else:
             print("Ungültige Auswahl.")
 
-    return recipes
 
-
-## Auswahl 3: Rezepte nach Charakter wählen #####################
+## Auswahl 3: Rezepte nach Charakter wählen #############################################################################
 
     
 def handle_character_flow(recipes: list[dict]) -> None:
