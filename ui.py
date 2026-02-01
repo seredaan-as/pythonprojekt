@@ -209,12 +209,27 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
                     print(f"{index}) {recipe['recipe_name']} ({recipe['cooking_time']} Minuten)")
                     
         elif choice == 3:
-            recipe_name = input("Rezeptname eingeben: ").strip()
-            found = next((r for r in recipes if r.get('recipe_name', '').lower() == recipe_name.lower()), None)
-            if found:
-                show_recipe_details(found)
-            else:
+            while True:
+                recipe_name = input("Rezeptname eingeben (0 = Abbrechen): ").strip()
+                if recipe_name == "0":
+                    break
+                if not recipe_name:
+                    print("Bitte einen Rezeptnamen eingeben.")
+                    continue
+
+                found = next(
+                    (r for r in recipes if r.get("recipe_name", "").lower() == recipe_name.lower()),
+                    None,
+                )
+                if found:
+                    show_recipe_details(found)
+                    mini_menu(found)
+                    break
+
                 print("Rezept nicht gefunden.")
+                retry = input("Nochmal versuchen? (j/n): ").strip().lower()
+                if retry not in ("j", "ja", "y", "yes"):
+                    break
         elif choice == 4:            
             ingredient = input("Zutat eingeben: ").strip()
             filtered = search_by_ingredient(recipes, ingredient)
