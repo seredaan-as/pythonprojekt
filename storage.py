@@ -4,6 +4,12 @@ import json
 json_file = "hp_recipes.json"
 
 def load_recipes() -> list[dict]:
+    """Lädt Rezepte aus einer JSON-Datei.
+
+    Returns:
+        list[dict]: Liste der geladenen Rezepte. Bei fehlender, defekter oder
+        unlesbarer Datei wird eine leere Liste zurückgegeben.
+    """
     try:
         with open(json_file, "r", encoding="utf-8") as f:           # Fehlerbehandlung: Die Datei wird nach der Ausführunf im with-Block automatisch geschlossen
             recipes = json.load(f)
@@ -20,7 +26,15 @@ def load_recipes() -> list[dict]:
 
 
 def save_recipes(recipes: list[dict], filename: str = json_file) -> bool:
-    """Speichert Rezepte als JSON-Datei; gibt True bei Erfolg zurück."""
+    """Speichert Rezepte als JSON-Datei.
+
+    Args:
+        recipes (list[dict]): Liste von Rezept-Dicts.
+        filename (str): Zieldatei. Standard ist `hp_recipes.json`.
+
+    Returns:
+        bool: `True` bei Erfolg, sonst `False`.
+    """
 
     try:
         with open(filename, "w", encoding="utf-8") as f:
@@ -32,4 +46,9 @@ def save_recipes(recipes: list[dict], filename: str = json_file) -> bool:
         return False
 
 def create_shopping_list():
+    """(Platzhalter) Erstellt einen Einkaufszettel.
+
+    Returns:
+        None: Noch nicht implementiert.
+    """
     pass

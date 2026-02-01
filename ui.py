@@ -8,14 +8,25 @@ import time
 
 
 def greet_user():
+    """Begrüßt den User und fragt nach dem Namen.
+
+    Returns:
+        str: Der eingegebene Name.
+    """
     print("=== Harry Potter Kochbuch ===")
     print("Willkommen, Reisender. Du hast das Harry-Potter-Kochbuch betreten.")
     
     user_name = input("Wie ist dein Name, Hexe oder Zauberer?: ")
     print(f"Schön, dich kennenzulernen, {user_name}! Heute begleite ich dich durch die magische Küche.")
+    return user_name
 
 
 def show_main_menu(): 
+    """Zeigt das Hauptmenü an und liest die Auswahl ein.
+
+    Returns:
+        int: Menüauswahl des Users.
+    """
     print("Was möchtest du tun? Wähle bitte 1, 2, 3 oder 4.")
     print("1) Rezept zum Kochen finden")
     print("2) Rezepte verwalten (hinzufügen, anzeigen, speichern, laden)")
@@ -29,6 +40,14 @@ def show_main_menu():
 
 
 def find_recipe_flow(recipes):
+    """Flow: Rezepte finden und anzeigen (inkl. Filter/Random).
+
+    Args:
+        recipes (list[dict]): Aktuelle Rezeptliste. Falls leer, wird aus Datei geladen.
+
+    Returns:
+        None: Kein Rückgabewert; Ausgabe erfolgt über `print`.
+    """
     
     if not recipes:
         recipes = load_recipes()
@@ -176,7 +195,14 @@ def find_recipe_flow(recipes):
 
 
 def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
-    """Flow C: Rezepte verwalten (hinzufügen, anzeigen, speichern, laden)."""
+    """Flow: Rezepte verwalten (hinzufügen, anzeigen, suchen, speichern).
+
+    Args:
+        recipes (list[dict]): Aktuelle Rezeptliste (wird ggf. erweitert).
+
+    Returns:
+        list[dict]: Die aktualisierte Rezeptliste.
+    """
     print("\n" + "=" * 60)
     print("Rezepte verwalten")
     print("=" * 60)
@@ -245,7 +271,7 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
         elif choice == 0:
             print("Hauptmenü wird geladen...")
             time.sleep(1)
-            return 
+            return recipes
         else:
             print("Ungültige Auswahl.")
 
@@ -254,7 +280,14 @@ def handle_manage_recipes_flow(recipes: list[dict]) -> list[dict]:
 
     
 def handle_character_flow(recipes: list[dict]) -> None:
-    """Flow B: Rezepte nach Harry-Potter-Charakteren durchsuchen."""
+    """Flow: Rezepte nach Harry-Potter-Charakteren durchsuchen.
+
+    Args:
+        recipes (list[dict]): Rezeptliste, aus der Charaktere und Rezepte ermittelt werden.
+
+    Returns:
+        None: Kein Rückgabewert; Ausgabe erfolgt über `print`.
+    """
     print("\n" + "=" * 60)
     print("Rezepte nach Harry-Potter-Charakteren entdecken")
     print("=" * 60)

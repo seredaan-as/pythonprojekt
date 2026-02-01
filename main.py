@@ -9,6 +9,14 @@ import time  # Modul für Zeitfunktionen importieren (Zeitverzögerung zwischen 
 # ----------------------------------------------------
 
 def main():
+    """Startet die Hauptschleife des Programms.
+
+    Lädt gespeicherte Rezepte, begrüßt den User und steuert die Navigation über das
+    Hauptmenü in die jeweiligen Flows.
+
+    Returns:
+        None: Kein Rückgabewert; die Funktion führt das Programm aus.
+    """
     recipes = load_recipes()
     name = greet_user()
 
