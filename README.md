@@ -65,16 +65,16 @@ Sereda, Anastasiia
 Ein Programm zur Verwaltung von Rezepten inklusive Zutaten und Zubereitungsschritten.
 
 *Anforderungen:*
-	• Anlegen neuer Rezepte (+)
-	• Anzeige aller Rezepte (+)
-	• Anzeigen einzelner Rezepte (+)
-	• Speichern in und laden der Rezepte aus einer Datei (+)
-	• Hauptmenü mit mehreren Auswahlmöglichkeiten (+)
-	• Saubere Benutzerführung (Fehlermeldung bei falscher Eingabe) (+)
+	- Anlegen neuer Rezepte (+)
+	- Anzeige aller Rezepte (+)
+	- Anzeigen einzelner Rezepte (+)
+	- Speichern in und laden der Rezepte aus einer Datei (+)
+	- Hauptmenü mit mehreren Auswahlmöglichkeiten (+)
+	- Saubere Benutzerführung (Fehlermeldung bei falscher Eingabe) (+)
 *Erweiterungen:*
-	• suche nach Zutaten (+)
-	• Portionsanpassung (nach Anzahl Personen) (+)
-	• Kategorien (z.B. vegetarisch) (+)
-	• Einkaufslisten-Generator (→ Einkaufsliste ist separate, formatierte Textdatei) (+)
-	• Zufällige Rezeptauswahl (+)
+	- suche nach Zutaten (+)
+	- Portionsanpassung (nach Anzahl Personen) (+)
+	- Kategorien (z.B. vegetarisch) (+)
+	- Einkaufslisten-Generator (→ Einkaufsliste ist separate, formatierte Textdatei) (+)
+	- Zufällige Rezeptauswahl (+)
 
