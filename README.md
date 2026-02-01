@@ -20,15 +20,14 @@ Zusätzlich können:
 
 ## Projektstruktur
 pythonprojekt/
-│
-├── main.py                # Startpunkt des Programms
-├── ui.py                  # Menüführung und Benutzerinteraktion
-├── functionsstorage.py    # Logik-Datei mit Hilfsfunktionen
-├── storage.py             # Laden & Speichern von JSON
-├── hp_recipes.json        # Rezeptdaten
-├── grocery_lists/         # Erstellte Einkaufszettel
-├── exported_recipes/      # Gespeicherte Rezepte
-└── README.md
+- main.py              # Startpunkt des Programms
+- ui.py                # Menüführung und Benutzerinteraktion
+- functionsstorage.py  # Logik-Datei mit Hilfsfunktionen
+- storage.py           # Laden & Speichern von JSON
+- hp_recipes.json      # Rezeptdaten
+- grocery_lists/       # Erstellte Einkaufszettel
+- exported_recipes/    # Gespeicherte Rezepte
+- (+) README.md
 
 
 ## Installation und  Bedienung
